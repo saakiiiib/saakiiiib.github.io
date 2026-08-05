@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<!--
+  ✏️ PERSONALIZE (3 steps):
+  1. Replace "Alex Rivera" and "Simulation & Machine Learning Engineer" everywhere.
+  2. Replace "hello@alexrivera.dev", social URLs, and publication DOIs (marked with TODO).
+  3. Swap images/ figures with your own real simulation outputs (same filenames keep it easy).
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Rivera — Simulation &amp; Machine Learning Engineer</title>
+<meta name="description" content="Portfolio of Alex Rivera — simulation, photovoltaic device engineering, thermal analysis and applied machine learning. Selected projects, publications and resume.">
+<meta name="keywords" content="SCAPS-1D, COMSOL Multiphysics, AutoCAD Electrical, machine learning, photovoltaic simulation, thermal analysis">
+<meta name="theme-color" content="#0b1117">
+<meta property="og:title" content="Alex Rivera — Simulation & Machine Learning Engineer">
+<meta property="og:description" content="Engineering simulations, research and selected project outcomes in photovoltaics, thermal analysis and applied ML.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@latest/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@latest/500.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@latest/600.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@latest/700.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@latest/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@latest/500.css">
+<style>
+:root{
+  --bg:#0b1117; --bg2:#0f1720; --bg3:#131c26; --panel:#0d141b;
+  --ink:#e6edf3; --muted:#8b98a5; --line:#1c2a36; --line2:#26394b;
+  --acc:#34d399; --acc2:#38bdf8; --acc-dim:rgba(52,211,153,.12);
+  --body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',Consolas,monospace;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--acc);color:#06281c}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--line2);border-radius:5px}
+::-webkit-scrollbar-thumb:hover{background:var(--acc)}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+ul{list-style:none}
+.mono{font-family:var(--mono)}
+section{scroll-margin-top:76px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,40px)}
+.hairline{height:1px;background:linear-gradient(90deg,var(--line),var(--bg))}
+
+/* ---------- background grid + glow ---------- */
+.bg-grid{position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:56px 56px;opacity:.22;mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 30%,transparent 75%)}
+.bg-glow{position:fixed;top:-18%;right:-10%;width:60vw;height:60vw;z-index:-3;pointer-events:none;
+  background:radial-gradient(circle,rgba(52,211,153,.09) 0%,rgba(56,189,248,.05) 40%,transparent 70%);
+  transform:translate(var(--px,0),var(--py,0));transition:transform .6s var(--ease)}
+
+/* ---------- header ---------- */
+.site-head{position:fixed;top:0;left:0;right:0;z-index:90;height:64px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(20px,4vw,40px);border-bottom:1px solid var(--line);background:rgba(11,17,23,.78);backdrop-filter:blur(12px)}
+.logo{font-family:var(--mono);font-weight:500;font-size:.82rem;letter-spacing:.14em;display:flex;gap:.55rem;align-items:center}
+.logo b{color:var(--acc);font-weight:500}
+.site-nav{display:flex;gap:clamp(12px,1.8vw,26px)}
+.site-nav a{font-family:var(--mono);font-size:.68rem;letter-spacing:.13em;color:var(--muted);padding:5px 0;position:relative;transition:color .3s}
+.site-nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--acc);transition:width .35s var(--ease)}
+.site-nav a:hover,.site-nav a.active{color:var(--ink)}
+.site-nav a.active::after{width:100%}
+.nav-open{display:none;font-size:1.05rem;color:var(--ink);padding:6px 10px;border:1px solid var(--line2)}
+@media(max-width:960px){
+  .site-nav{position:fixed;top:64px;left:0;right:0;flex-direction:column;gap:0;background:rgba(11,17,23,.97);
+    border-bottom:1px solid var(--line);padding:8px clamp(20px,4vw,40px) 16px;display:none}
+  .site-nav.open{display:flex}
+  .site-nav a{padding:10px 0;border-bottom:1px solid var(--line)}
+  .site-nav a:last-child{border-bottom:none}
+  .nav-open{display:block}
+}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.13em;
+  padding:.85rem 1.4rem;border:1px solid var(--line2);color:var(--ink);transition:all .3s var(--ease);white-space:nowrap}
+.btn:hover{border-color:var(--acc);color:var(--acc);transform:translateY(-2px)}
+.btn.solid{background:var(--acc);border-color:var(--acc);color:#06281c}
+.btn.solid:hover{background:transparent;color:var(--acc)}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:110px clamp(20px,4vw,40px) 70px;max-width:1180px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;color:var(--acc);
+  border:1px solid rgba(52,211,153,.35);background:var(--acc-dim);padding:.42rem .8rem;width:max-content}
+.hero-badge i{width:6px;height:6px;border-radius:50%;background:var(--acc)}
+.hero h1{font-size:clamp(2.3rem,6.4vw,4.4rem);line-height:1.06;font-weight:700;letter-spacing:-.025em;margin:1.4rem 0 .7rem}
+.hero h1 .name{background:linear-gradient(90deg,var(--ink) 30%,var(--muted));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 .role{color:var(--acc)}
+.hero .lede{max-width:60ch;color:var(--muted);font-size:1.05rem}
+.hero-cta{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:2.2rem}
+.hero-tools{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:2.6rem}
+.hero-tools span{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;color:var(--muted);border:1px solid var(--line);padding:.32rem .6rem}
+.hero-scroll{position:absolute;bottom:24px;left:clamp(20px,4vw,40px);font-family:var(--mono);font-size:.62rem;letter-spacing:.22em;color:var(--muted)}
+
+/* ---------- section head ---------- */
+.sec-head{display:flex;align-items:baseline;gap:1rem;padding:clamp(64px,9vh,104px) 0 2.2rem}
+.sec-num{font-family:var(--mono);font-size:.72rem;color:var(--acc);letter-spacing:.1em}
+.sec-title{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:700;letter-spacing:-.02em}
+.sec-title small{display:block;font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;color:var(--muted);font-weight:400;margin-top:.4rem}
+.sec-rule{flex:1;height:1px;background:linear-gradient(90deg,var(--line2),transparent);align-self:center}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.on{opacity:1;transform:none}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4.5rem);padding-bottom:clamp(50px,8vh,90px)}
+@media(max-width:880px){.about-grid{grid-template-columns:1fr}}
+.about-col p+p{margin-top:1.1rem}
+.about-col p{color:var(--muted);max-width:66ch}
+.about-col strong{color:var(--ink);font-weight:600}
+.about-col .lead{font-size:1.12rem;color:var(--ink)}
+.about-col .lead em{font-style:normal;color:var(--acc)}
+.about-sub{margin-top:2rem}
+.about-sub h3{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;color:var(--acc);margin-bottom:.9rem}
+.about-sub li{display:flex;gap:.8rem;padding:.42rem 0;color:var(--muted);font-size:.93rem;border-bottom:1px dashed var(--line)}
+.about-sub li::before{content:"—";color:var(--acc)}
+.kb{position:relative;overflow:hidden;border:1px solid var(--line);background:linear-gradient(160deg,var(--bg3),var(--bg));
+  padding:2rem 1.6rem;height:100%;min-height:320px;display:flex;flex-direction:column;justify-content:space-between}
+.kb .kb-tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;color:var(--acc)}
+.kb .kb-q{font-size:1.02rem;line-height:1.5;color:var(--ink);font-weight:500}
+.kb .kb-q span{color:var(--acc2)}
+.kb .kb-meta{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;color:var(--muted);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+/* ---------- expertise ---------- */
+.exp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1.1rem;padding-bottom:clamp(50px,8vh,90px)}
+.exp-card{background:var(--panel);border:1px solid var(--line);padding:1.7rem 1.6rem;position:relative;overflow:hidden;transition:border-color .35s,transform .35s var(--ease)}
+.exp-card::before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(52,211,153,.05),transparent 55%);opacity:0;transition:opacity .35s}
+.exp-card:hover{border-color:var(--line2);transform:translateY(-4px)}
+.exp-card:hover::before{opacity:1}
+.exp-card .exp-ico{width:38px;height:38px;margin-bottom:1.2rem}
+.exp-card h3{font-size:1.08rem;font-weight:600;letter-spacing:-.01em;margin-bottom:.85rem}
+.exp-card ul li{font-size:.9rem;color:var(--muted);padding:.24rem 0 .24rem 1.1rem;position:relative}
+.exp-card ul li::before{content:"+";position:absolute;left:0;color:var(--acc);font-family:var(--mono);font-size:.7rem;top:.42rem}
+.exp-card .exp-num{position:absolute;top:1.1rem;right:1.2rem;font-family:var(--mono);font-size:.62rem;color:var(--line2)}
+
+/* ---------- portfolio ---------- */
+.filters{display:flex;gap:.55rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.chip{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;padding:.5rem .95rem;border:1px solid var(--line2);color:var(--muted);transition:all .3s}
+.chip:hover{color:var(--ink);border-color:var(--muted)}
+.chip.active{background:var(--acc);border-color:var(--acc);color:#06281c;font-weight:500}
+.work-count{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;color:var(--muted);margin-bottom:2.2rem}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem 1.8rem;padding-bottom:clamp(50px,8vh,90px)}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+.card{cursor:pointer;background:var(--panel);border:1px solid var(--line);transition:border-color .35s,transform .35s var(--ease)}
+.card.pop{animation:pop .45s var(--ease) both}
+@keyframes pop{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.card:hover{border-color:var(--line2);transform:translateY(-4px)}
+.card-media{position:relative;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid var(--line);background:var(--bg3)}
+.card-media img,.card-media svg{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.card:hover .card-media img,.card:hover .card-media svg{transform:scale(1.04)}
+.card-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(11,17,23,.55));pointer-events:none}
+.card-num{position:absolute;top:12px;left:12px;z-index:2;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;color:var(--acc);background:rgba(11,17,23,.75);padding:.26rem .5rem;backdrop-filter:blur(4px)}
+.card-cat{position:absolute;top:12px;right:12px;z-index:2;font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;color:var(--ink);border:1px solid var(--line2);background:rgba(11,17,23,.75);padding:.26rem .5rem;backdrop-filter:blur(4px)}
+.card-body{padding:1.15rem 1.2rem 1.3rem}
+.card-body h3{font-size:1.12rem;font-weight:600;letter-spacing:-.01em;transition:color .3s}
+.card:hover .card-body h3{color:var(--acc)}
+.card-body p{color:var(--muted);font-size:.9rem;margin:.45rem 0 .9rem}
+.card-tags{display:flex;gap:.45rem;flex-wrap:wrap}
+.card-tags span{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;color:var(--muted);border:1px solid var(--line);padding:.24rem .5rem}
+.card-view{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;color:var(--acc)}
+
+/* ---------- modal ---------- */
+.modal{position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;padding:18px;visibility:hidden;opacity:0;transition:opacity .35s,visibility .35s}
+.modal.open{visibility:visible;opacity:1}
+.modal-back{position:absolute;inset:0;background:rgba(4,9,14,.82);backdrop-filter:blur(7px)}
+.modal-panel{position:relative;width:min(960px,100%);max-height:90vh;overflow:auto;background:var(--bg2);border:1px solid var(--line2);transform:translateY(22px) scale(.985);transition:transform .45s var(--ease)}
+.modal.open .modal-panel{transform:none}
+.modal-x{position:sticky;top:0;margin-left:calc(100% - 46px);width:46px;height:46px;background:var(--acc);color:#06281c;font-size:.95rem;z-index:2}
+.modal-head{padding:1.8rem clamp(1.4rem,4vw,2.4rem) 0}
+.modal-head .m-cat{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;color:var(--acc)}
+.modal-head h3{font-size:clamp(1.4rem,3.4vw,2rem);font-weight:700;letter-spacing:-.02em;margin:.5rem 0 .6rem}
+.modal-head>p{color:var(--muted);font-size:.96rem;max-width:72ch}
+.modal-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:1.5rem clamp(1.4rem,4vw,2.4rem) 0}
+.modal-meta div{background:var(--bg2);padding:.85rem 1rem;font-size:.82rem}
+.modal-meta b{display:block;font-family:var(--mono);font-size:.56rem;letter-spacing:.16em;color:var(--acc);font-weight:500;margin-bottom:.3rem}
+.modal-meta span{color:var(--muted);font-family:var(--mono);font-size:.68rem}
+.modal-figs{padding:1.6rem clamp(1.4rem,4vw,2.4rem) 2.2rem;display:grid;gap:1.4rem}
+.mfig{margin-top:1rem}
+.mfig-media{border:1px solid var(--line);background:var(--panel);overflow:hidden}
+.mfig-media img{width:100%}
+.mfig-media svg{width:100%;height:auto}
+.mfig figcaption{font-family:var(--mono);font-size:.6rem;letter-spacing:.13em;color:var(--muted);margin-top:.5rem}
+.modal-sum{display:flex;flex-wrap:wrap;gap:.5rem}
+.modal-sum span{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;color:var(--ink);border:1px solid var(--line2);padding:.34rem .7rem}
+.modal-sec{font-family:var(--mono);font-size:.64rem;letter-spacing:.18em;color:var(--acc);margin:1.4rem 0 .7rem}
+.modal-outputs{display:grid;grid-template-columns:1fr 1fr;gap:.45rem .9rem}
+@media(max-width:640px){.modal-outputs{grid-template-columns:1fr}}
+.modal-outputs li{font-size:.82rem;color:var(--muted);padding-left:1.4rem;position:relative}
+.modal-outputs li::before{content:"✓";position:absolute;left:0;color:var(--acc);font-family:var(--mono);font-size:.72rem}
+.skip-link{position:absolute;left:-999px;top:10px;z-index:200;background:var(--acc);color:#06281c;padding:.5rem 1rem;font-weight:600;border-radius:4px}
+.skip-link:focus{left:10px}
+body.lock{overflow:hidden}
+
+/* ---------- publications ---------- */
+.pub-grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:clamp(50px,8vh,90px)}
+.pub{background:var(--panel);padding:1.35rem 1.5rem;display:grid;grid-template-columns:auto 1fr auto;gap:1.3rem;align-items:start;transition:background .3s}
+.pub:hover{background:var(--bg3)}
+.pub .pub-year{font-family:var(--mono);font-size:.66rem;color:var(--acc);padding-top:.2rem}
+.pub h3{font-size:1rem;font-weight:600;letter-spacing:-.01em;line-height:1.45}
+.pub .pub-journal{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;color:var(--muted);margin-top:.35rem}
+.pub .pub-links{display:flex;gap:.7rem;margin-top:.6rem}
+.pub .pub-links a{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;color:var(--acc);border-bottom:1px solid rgba(52,211,153,.3);padding-bottom:1px}
+.pub .pub-links a:hover{color:var(--ink)}
+.pub .pub-tag{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;color:var(--muted);border:1px solid var(--line2);padding:.3rem .55rem;white-space:nowrap}
+@media(max-width:720px){.pub{grid-template-columns:1fr;gap:.6rem}}
+
+/* ---------- resume ---------- */
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);padding-bottom:2.2rem}
+@media(max-width:880px){.res-grid{grid-template-columns:1fr}}
+.res-col h3{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;color:var(--acc);margin-bottom:1.1rem}
+.res-item{position:relative;padding-left:1.2rem;padding-bottom:1.5rem;border-left:1px solid var(--line2)}
+.res-item::before{content:"";position:absolute;left:-3.5px;top:6px;width:6px;height:6px;border-radius:50%;background:var(--acc)}
+.res-item h4{font-size:.98rem;font-weight:600}
+.res-item .when{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;color:var(--acc2);margin:.15rem 0 .3rem}
+.res-item p{color:var(--muted);font-size:.9rem}
+.skill-block{display:grid;gap:.8rem}
+.skill-row{display:grid;grid-template-columns:190px 1fr;gap:1rem;align-items:center}
+@media(max-width:640px){.skill-row{grid-template-columns:1fr}}
+.skill-row b{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;color:var(--ink);font-weight:500}
+.skill-chips{display:flex;flex-wrap:wrap;gap:.45rem}
+.skill-chips span{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:var(--muted);border:1px solid var(--line);padding:.26rem .55rem}
+.res-cta{display:flex;gap:1rem;flex-wrap:wrap;padding-bottom:clamp(50px,8vh,90px)}
+
+/* ---------- contact ---------- */
+.contact-kicker{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;color:var(--muted);margin-bottom:1.6rem}
+.mega{display:inline-block;font-size:clamp(1.7rem,5.4vw,3.6rem);font-weight:700;letter-spacing:-.02em;color:var(--ink);transition:color .3s}
+.mega:hover{color:var(--acc)}
+.mega .mega-arr{display:inline-block;color:var(--acc);transition:transform .4s var(--ease)}
+.mega:hover .mega-arr{transform:translate(6px,-6px)}
+.contact-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:2.6rem 0 clamp(50px,8vh,90px)}
+.clink{background:var(--panel);padding:1.1rem 1.2rem;transition:background .3s,color .3s}
+.clink:hover{background:var(--acc)}
+.clink small{display:block;font-family:var(--mono);font-size:.56rem;letter-spacing:.16em;color:var(--muted);margin-bottom:.3rem;transition:color .3s}
+.clink b{font-size:.88rem;font-weight:600;letter-spacing:-.01em;display:flex;justify-content:space-between;align-items:center}
+.clink:hover b,.clink:hover small{color:#06281c}
+.clink .up{transition:transform .3s var(--ease)}
+.clink:hover .up{transform:translate(2px,-2px)}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line)}
+.foot-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:1.5rem clamp(20px,4vw,40px)}
+.foot-row span,.foot-row a{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;color:var(--muted)}
+.btt:hover{color:var(--acc)}
+
+/* ---------- svg figure text ---------- */
+.svg-fig text{font-family:var(--mono);fill:#d7e0e8}
+.svg-fig .t-dim{fill:#8b98a5}
+.svg-fig .t-acc{fill:var(--acc)}
+.svg-fig .t-acc2{fill:var(--acc2)}
+.svg-fig .t-ink{fill:#e6edf3}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .rv{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#home">Skip to content</a>
+
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-glow" id="glow" aria-hidden="true"></div>
+
+<header class="site-head">
+  <a class="logo" href="#home"><b>‹/›</b> ALEX RIVERA</a>
+  <nav class="site-nav" id="nav" aria-label="Primary">
+    <a href="#home">HOME</a><a href="#about">ABOUT</a><a href="#expertise">EXPERTISE</a>
+    <a href="#portfolio">PORTFOLIO</a><a href="#publications">PUBLICATIONS</a><a href="#resume">RESUME</a><a href="#contact">CONTACT</a>
+  </nav>
+  <button class="nav-open" id="navOpen" aria-label="Menu" aria-expanded="false">☰</button>
+</header>
+
+<main>
+<!-- ============ HOME ============ -->
+<section class="hero" id="home">
+  <div class="hero-badge mono"><i></i> OPEN TO RESEARCH COLLABORATION</div>
+  <h1><span class="name">Alex Rivera</span><br><span class="role">Simulation &amp; Machine Learning Engineer</span></h1>
+  <p class="lede">I develop numerical models of photovoltaic devices and power-electronics systems, and I apply machine learning to accelerate engineering design. My work combines device physics, multiphysics simulation, and data-driven optimization — with results communicated as clean, reproducible figures and reports.</p>
+  <div class="hero-cta">
+    <a class="btn solid" href="#portfolio">VIEW PORTFOLIO</a>
+    <a class="btn" href="resume.html" download>DOWNLOAD RESUME ↓</a>
+  </div>
+  <div class="hero-tools">
+    <span>SCAPS-1D</span><span>COMSOL MULTIPHYSICS</span><span>AUTOCAD ELECTRICAL</span><span>PYTHON</span><span>MACHINE LEARNING</span>
+  </div>
+  <div class="hero-scroll mono">SCROLL ↓</div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about"><div class="wrap">
+  <div class="sec-head">
+    <span class="sec-num">01 / ABOUT</span>
+    <h2 class="sec-title">Professional Profile<small>SUMMARY · EDUCATION · RESEARCH INTERESTS · OBJECTIVE</small></h2>
+    <span class="sec-rule"></span>
+  </div>
+  <div class="about-grid">
+    <div class="about-col">
+      <p class="lead rv">Simulation engineer focused on <em>photovoltaic device physics</em> and <em>applied machine learning</em> — from semiconductor device modeling to thermal management of power systems.</p>
+      <p class="rv">My work centers on building accurate numerical models, validating them against published data, and using them to guide engineering decisions. I have modeled perovskite and thin-film solar cells in SCAPS-1D, analyzed heat transfer in power-electronics hardware with COMSOL Multiphysics, and developed ML models that predict device performance from material parameters.</p>
+      <p class="rv">I am equally comfortable producing professional electrical documentation with AutoCAD Electrical and writing clean Python for data analysis, automation, and visualization. Every result I publish is reproducible, documented, and reviewed — this portfolio is the curated summary of that work.</p>
+      <div class="about-sub rv">
+        <h3>EDUCATION</h3>
+        <ul>
+          <li>B.Sc. in Electrical &amp; Electronic Engineering — specialization in renewable energy (TODO: university, 2019–2023)</li>
+          <li>Continuing education: semiconductor device physics, numerical methods, applied statistics</li>
+        </ul>
+      </div>
+      <div class="about-sub rv">
+        <h3>RESEARCH INTERESTS</h3>
+        <ul>
+          <li>Perovskite &amp; thin-film photovoltaic device simulation and optimization</li>
+          <li>Multiphysics thermal and electromagnetic modeling of power systems</li>
+          <li>Machine-learning surrogates and explainable AI for engineering design</li>
+          <li>Automation of simulation workflows and scientific visualization</li>
+        </ul>
+      </div>
+      <div class="about-sub rv">
+        <h3>CAREER OBJECTIVE</h3>
+        <ul>
+          <li>To contribute to applied research and product development where numerical simulation and data-driven methods improve engineering outcomes — in renewable energy, power electronics, or semiconductor industries.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="kb rv">
+      <span class="kb-tag">SELECTED WORK</span>
+      <p class="kb-q">“Simulation is where we can afford to be wrong — <span>so the experiments are right.</span>”</p>
+      <div class="kb-meta">
+        <span>SCAPS-1D · COMSOL · ML</span>
+        <a class="btn" href="resume.html" download>RESUME (PDF) ↓</a>
+      </div>
+    </div>
+  </div>
+</div></section>
+<div class="hairline"></div>
+
+<!-- ============ EXPERTISE ============ -->
+<section id="expertise"><div class="wrap">
+  <div class="sec-head">
+    <span class="sec-num">02 / EXPERTISE</span>
+    <h2 class="sec-title">Technical Capability<small>CORE SIMULATION AND ENGINEERING SKILLS</small></h2>
+    <span class="sec-rule"></span>
+  </div>
+  <div class="exp-grid" id="expGrid"></div>
+</div></section>
+<div class="hairline"></div>
+
+<!-- ============ PORTFOLIO ============ -->
+<section id="portfolio"><div class="wrap">
+  <div class="sec-head">
+    <span class="sec-num">03 / PORTFOLIO</span>
+    <h2 class="sec-title">Selected Project Outcomes<small>REPRESENTATIVE RESULTS · NO SOURCE CODE OR PROPRIETARY DATA</small></h2>
+    <span class="sec-rule"></span>
+  </div>
+  <div class="filters" id="filters"></div>
+  <div class="work-count mono" id="workCount"></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+<div class="hairline"></div>
+
+<!-- ============ PUBLICATIONS ============ -->
+<section id="publications"><div class="wrap">
+  <div class="sec-head">
+    <span class="sec-num">04 / PUBLICATIONS</span>
+    <h2 class="sec-title">Publications<small>JOURNAL ARTICLES AND CONFERENCE PROCEEDINGS</small></h2>
+    <span class="sec-rule"></span>
+  </div>
+  <div class="pub-grid" id="pubGrid"></div>
+</div></section>
+<div class="hairline"></div>
+
+<!-- ============ RESUME ============ -->
+<section id="resume"><div class="wrap">
+  <div class="sec-head">
+    <span class="sec-num">05 / RESUME</span>
+    <h2 class="sec-title">Resume / CV<small>EDUCATION · EXPERIENCE · SKILLS · CERTIFICATIONS</small></h2>
+    <span class="sec-rule"></span>
+  </div>
+  <div class="res-grid">
+    <div class="res-col">
+      <h3>EDUCATION</h3>
+      <div class="res-item rv">
+        <h4>B.Sc. Electrical &amp; Electronic Engineering</h4>
+        <div class="when">2019 — 2023 · TODO: INSTITUTION</div>
+        <p>Renewable energy concentration. Thesis: numerical optimization of perovskite solar cells (SCAPS-1D).</p>
+      </div>
+      <h3 style="margin-top:2.2rem">RESEARCH EXPERIENCE</h3>
+      <div class="res-item rv">
+        <h4>Independent research — photovoltaic device simulation</h4>
+        <div class="when">2023 — PRESENT</div>
+        <p>Material and thickness optimization of lead-free perovskite absorbers; J–V, EQE and spectral-response analysis; validation against published experimental data.</p>
+      </div>
+      <div class="res-item rv">
+        <h4>Thermal design analysis — power electronics (COMSOL)</h4>
+        <div class="when">2024</div>
+        <p>Steady-state thermal modeling of finned heat sinks; design-space sweeps; junction-temperature budgets.</p>
+      </div>
+      <div class="res-item rv">
+        <h4>Machine learning for PV performance prediction</h4>
+        <div class="when">2024 — 2025</div>
+        <p>Trained gradient-boosting models on device datasets; SHAP-based feature analysis; cross-validated evaluation.</p>
+      </div>
+      <h3 style="margin-top:2.2rem">CERTIFICATIONS</h3>
+      <div class="res-item rv">
+        <h4>Specializations &amp; courses</h4>
+        <div class="when">2022 — 2025</div>
+        <p>TODO: list certifications (e.g., machine learning, numerical methods, AutoCAD Electrical, MATLAB).</p>
+      </div>
+    </div>
+    <div class="res-col">
+      <h3>TECHNICAL SKILLS</h3>
+      <div class="skill-block">
+        <div class="skill-row rv"><b>DEVICE SIMULATION</b><div class="skill-chips"><span>SCAPS-1D</span><span>Drift-diffusion concepts</span><span>J–V / EQE analysis</span><span>Parameter sweeps</span></div></div>
+        <div class="skill-row rv"><b>MULTIPHYSICS FEA</b><div class="skill-chips"><span>COMSOL Multiphysics</span><span>Heat transfer</span><span>Electrostatics</span><span>Meshing &amp; convergence</span></div></div>
+        <div class="skill-row rv"><b>ELECTRICAL DESIGN</b><div class="skill-chips"><span>AutoCAD Electrical</span><span>Schematics</span><span>Panel layouts</span><span>BOM &amp; documentation</span></div></div>
+        <div class="skill-row rv"><b>MACHINE LEARNING</b><div class="skill-chips"><span>Scikit-learn</span><span>Gradient boosting</span><span>Explainable AI (SHAP)</span><span>Cross-validation</span></div></div>
+        <div class="skill-row rv"><b>PROGRAMMING</b><div class="skill-chips"><span>Python</span><span>NumPy / Pandas</span><span>Matplotlib</span><span>Automation scripting</span></div></div>
+        <div class="skill-row rv"><b>SCIENTIFIC TOOLS</b><div class="skill-chips"><span>Origin</span><span>MATLAB</span><span>LaTeX</span><span>Git</span></div></div>
+      </div>
+      <h3 style="margin-top:2.2rem">PUBLICATIONS</h3>
+      <div class="res-item rv">
+        <h4>4 peer-reviewed articles and proceedings</h4>
+        <div class="when">2023 — 2025</div>
+        <p>Full list with DOIs in the publications section above.</p>
+      </div>
+    </div>
+  </div>
+  <div class="res-cta rv">
+    <a class="btn solid" href="resume.html" download>DOWNLOAD FULL CV (PDF) ↓</a>
+    <a class="btn" href="#publications">VIEW PUBLICATIONS ↗</a>
+  </div>
+</div></section>
+<div class="hairline"></div>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact"><div class="wrap">
+  <div class="sec-head">
+    <span class="sec-num">06 / CONTACT</span>
+    <h2 class="sec-title">Get in Touch<small>EMAIL AND PROFESSIONAL PROFILES</small></h2>
+    <span class="sec-rule"></span>
+  </div>
+  <p class="contact-kicker mono">FOR RESEARCH COLLABORATIONS, CONSULTING, OR EMPLOYMENT OPPORTUNITIES:</p>
+  <a class="mega" id="mega" href="mailto:hello@alexrivera.dev">hello@alexrivera.dev<span class="mega-arr">↗</span></a>
+  <div class="contact-links" id="contactLinks"></div>
+</div></section>
+</main>
+
+<footer>
+  <div class="foot-row">
+    <span>© <span id="yr">2026</span> ALEX RIVERA — SIMULATION &amp; MACHINE LEARNING ENGINEER</span>
+    <a class="btt" href="#home">BACK TO TOP ↑</a>
+  </div>
+</footer>
+
+<!-- ============ MODAL ============ -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-back" data-close></div>
+  <article class="modal-panel">
+    <button class="modal-x" data-close aria-label="Close">✕</button>
+    <div class="modal-head">
+      <span class="m-cat" id="mCat"></span>
+      <h3 id="mTitle"></h3>
+      <p id="mDesc"></p>
+      <div id="mInfo"></div>
+      <div class="modal-meta" id="mMeta"></div>
+      <div class="modal-sum" id="mSum" style="margin-top:1rem"></div>
+    </div>
+    <div class="modal-figs" id="mFigs"></div>
+  </article>
+</div>
+
+<!-- ============ SVG FIGURE LIBRARY ============ -->
+<div id="svgLib" hidden aria-hidden="true">
+
+<!-- Perovskite device structure -->
+<svg class="svg-fig" id="svgStack" viewBox="0 0 470 330" xmlns="http://www.w3.org/2000/svg">
+  <g stroke="#26394b" stroke-width="1">
+    <line x1="340" y1="0" x2="340" y2="330"/>
+    <line x1="60" y1="24" x2="60" y2="272"/>
+  </g>
+  <g stroke="#34d399" stroke-width="1.2">
+    <line x1="118" y1="8" x2="118" y2="24"/><line x1="150" y1="8" x2="150" y2="24"/><line x1="182" y1="8" x2="182" y2="24"/>
+    <path d="M118 24 L114 16 L118 8 L122 16 Z" fill="#34d399" stroke="none"/>
+  </g>
+  <text x="60" y="16" class="t-dim" font-size="10">AM1.5G</text>
+  <g font-size="9">
+    <rect x="80" y="24" width="200" height="40" fill="#334155"/>
+    <text x="300" y="43" class="t-dim">Glass / FTO</text>
+    <text x="410" y="43" text-anchor="end" class="t-acc2">400 nm</text>
+    <rect x="80" y="64" width="200" height="32" fill="#0e7490"/>
+    <text x="300" y="83" class="t-dim">TiO2 ETL</text>
+    <text x="410" y="83" text-anchor="end" class="t-acc2">50 nm</text>
+    <rect x="80" y="96" width="200" height="120" fill="#7c2d12"/>
+    <text x="180" y="165" text-anchor="middle" class="t-ink" font-size="11" font-weight="bold">PEROVSKITE</text>
+    <text x="180" y="179" text-anchor="middle" class="t-ink" font-size="8">FA-based lead-free absorber</text>
+    <text x="300" y="159" class="t-dim">Perovskite absorber</text>
+    <text x="410" y="159" text-anchor="end" class="t-acc2">720 nm</text>
+    <rect x="80" y="216" width="200" height="28" fill="#3f6212"/>
+    <text x="300" y="233" class="t-dim">Spiro-OMeTAD HTL</text>
+    <text x="410" y="233" text-anchor="end" class="t-acc2">150 nm</text>
+    <rect x="80" y="244" width="200" height="28" fill="#b45309"/>
+    <text x="300" y="261" class="t-dim">Au electrode</text>
+    <text x="410" y="261" text-anchor="end" class="t-acc2">80 nm</text>
+  </g>
+  <g stroke="#8b98a5" stroke-width="1">
+    <line x1="64" y1="28" x2="64" y2="244"/><line x1="60" y1="28" x2="64" y2="28"/><line x1="60" y1="244" x2="64" y2="244"/>
+  </g>
+  <text x="40" y="140" class="t-dim" font-size="9" transform="rotate(-90 40 140)" text-anchor="middle">hv ↓ e-</text>
+</svg>
+
+<!-- p-n junction cross-section -->
+<svg class="svg-fig" id="svgPnjunc" viewBox="0 0 470 250" xmlns="http://www.w3.org/2000/svg">
+  <rect x="40" y="36" width="185" height="140" fill="rgba(56,189,248,.10)" stroke="#26394b"/>
+  <rect x="245" y="36" width="185" height="140" fill="rgba(52,211,153,.10)" stroke="#26394b"/>
+  <rect x="225" y="36" width="20" height="140" fill="rgba(148,163,184,.16)" stroke="#26394b"/>
+  <text x="132" y="95" text-anchor="middle" class="t-acc2" font-size="11">p-type</text>
+  <text x="132" y="112" text-anchor="middle" class="t-dim" font-size="8">NA ≈ 1e17 cm-3</text>
+  <text x="132" y="126" text-anchor="middle" class="t-dim" font-size="8">holes (majority)</text>
+  <text x="337" y="95" text-anchor="middle" class="t-acc" font-size="11">n-type</text>
+  <text x="337" y="112" text-anchor="middle" class="t-dim" font-size="8">ND ≈ 1e16 cm-3</text>
+  <text x="337" y="126" text-anchor="middle" class="t-dim" font-size="8">electrons (majority)</text>
+  <text x="235" y="60" text-anchor="middle" class="t-acc" font-size="9">− − −</text>
+  <text x="235" y="150" text-anchor="middle" class="t-acc" font-size="9">− − −</text>
+  <text x="235" y="196" text-anchor="middle" class="t-acc2" font-size="9">+ + +</text>
+  <text x="235" y="104" text-anchor="middle" class="t-ink" font-size="7">depletion</text>
+  <text x="235" y="116" text-anchor="middle" class="t-ink" font-size="7">region</text>
+  <g stroke="#26394b">
+    <line x1="60" y1="200" x2="200" y2="200"/><line x1="270" y1="200" x2="410" y2="200"/>
+  </g>
+  <g stroke="#8b98a5" stroke-width="1">
+    <line x1="60" y1="203" x2="60" y2="196"/><line x1="200" y1="203" x2="200" y2="196"/>
+    <line x1="270" y1="203" x2="270" y2="196"/><line x1="410" y1="203" x2="410" y2="196"/>
+  </g>
+  <text x="130" y="218" text-anchor="middle" class="t-dim" font-size="8">Wp</text>
+  <text x="340" y="218" text-anchor="middle" class="t-dim" font-size="8">Wn</text>
+  <g stroke="#34d399" stroke-width="1.4">
+    <line x1="214" y1="52" x2="256" y2="52"/>
+    <path d="M256 52 L250 49 L256 52 L250 55 Z" fill="#34d399" stroke="none"/>
+  </g>
+  <text x="215" y="34" class="t-acc" font-size="9">built-in field E →</text>
+</svg>
+
+<!-- p-n junction profiles -->
+<svg class="svg-fig" id="svgPnProfiles" viewBox="0 0 470 300" xmlns="http://www.w3.org/2000/svg">
+  <text x="24" y="26" class="t-ink" font-size="9">(a) space charge ρ(x)</text>
+  <rect x="60" y="34" width="90" height="52" fill="rgba(56,189,248,.22)" stroke="#26394b"/>
+  <rect x="320" y="34" width="90" height="52" fill="rgba(52,211,153,.22)" stroke="#26394b"/>
+  <text x="105" y="72" text-anchor="middle" class="t-dim" font-size="8">−qNA</text>
+  <text x="365" y="72" text-anchor="middle" class="t-dim" font-size="8">+qND</text>
+  <text x="24" y="126" class="t-ink" font-size="9">(b) electric field E(x)</text>
+  <polygon points="60,134 150,134 160,134 160,158 150,158 60,158" fill="rgba(52,211,153,.28)" stroke="#34d399"/>
+  <polygon points="310,134 320,134 320,158 310,158" fill="rgba(56,189,248,.28)" stroke="#38bdf8"/>
+  <g stroke="#26394b"><line x1="60" y1="166" x2="410" y2="166"/></g>
+  <text x="24" y="216" class="t-ink" font-size="9">(c) potential V(x)</text>
+  <path d="M60 236 L150 236 L160 236 C240 236 320 196 320 196 L320 192 L410 192 L410 186 L320 186 L320 188 C270 200 200 228 160 228 L150 228 L60 228 Z" fill="rgba(148,163,184,.15)" stroke="#e6edf3" stroke-width="1.1"/>
+  <g stroke="#26394b"><line x1="60" y1="254" x2="410" y2="254"/></g>
+  <text x="235" y="278" text-anchor="middle" class="t-dim" font-size="8">x →</text>
+  <text x="24" y="278" class="t-dim" font-size="8">junction at x = 0</text>
+</svg>
+
+<!-- Motor starter schematic -->
+<svg class="svg-fig" id="svgSchematic" viewBox="0 0 470 330" xmlns="http://www.w3.org/2000/svg">
+  <g font-size="8.5">
+    <g stroke="#26394b" stroke-width="1.2">
+      <line x1="60" y1="30" x2="60" y2="120"/><line x1="100" y1="30" x2="100" y2="120"/><line x1="140" y1="30" x2="140" y2="120"/>
+      <line x1="60" y1="152" x2="60" y2="200"/><line x1="100" y1="152" x2="100" y2="200"/><line x1="140" y1="152" x2="140" y2="200"/>
+    </g>
+    <text x="60" y="22" class="t-acc" text-anchor="middle">L1</text>
+    <text x="100" y="22" class="t-acc" text-anchor="middle">L2</text>
+    <text x="140" y="22" class="t-acc" text-anchor="middle">L3</text>
+    <g fill="none" stroke="#e6edf3" stroke-width="1.2">
+      <rect x="48" y="52" width="24" height="26"/><rect x="88" y="52" width="24" height="26"/><rect x="128" y="52" width="24" height="26"/>
+    </g>
+    <text x="60" y="91" class="t-ink" text-anchor="middle">Q1</text>
+    <g fill="none" stroke="#e6edf3" stroke-width="1.2">
+      <rect x="48" y="126" width="24" height="14"/><rect x="88" y="126" width="24" height="14"/><rect x="128" y="126" width="24" height="14"/>
+    </g>
+    <text x="60" y="155" class="t-ink" text-anchor="middle">K1</text>
+    <circle cx="100" cy="222" r="20" fill="none" stroke="#e6edf3" stroke-width="1.3"/>
+    <text x="100" y="226" text-anchor="middle" class="t-ink">M1</text>
+    <text x="112" y="250" class="t-dim">3~ motor</text>
+    <g stroke="#34d399" stroke-width="1.2">
+      <line x1="60" y1="30" x2="60" y2="26"/><line x1="60" y1="30" x2="66" y2="30"/>
+      <line x1="100" y1="30" x2="100" y2="26"/><line x1="100" y1="30" x2="106" y2="30"/>
+      <line x1="140" y1="30" x2="140" y2="26"/><line x1="140" y1="30" x2="146" y2="30"/>
+    </g>
+    <g stroke="#8b98a5" stroke-width="1">
+      <line x1="40" y1="52" x2="32" y2="52"/><line x1="32" y1="52" x2="32" y2="78"/><line x1="32" y1="78" x2="40" y2="78"/>
+      <line x1="152" y1="52" x2="160" y2="52"/><line x1="160" y1="52" x2="160" y2="78"/><line x1="160" y1="78" x2="152" y2="78"/>
+    </g>
+    <g stroke="#34d399" stroke-width="1.2">
+      <line x1="100" y1="30" x2="100" y2="10"/><line x1="100" y1="10" x2="330" y2="10"/><line x1="330" y1="10" x2="330" y2="40"/>
+    </g>
+    <text x="338" y="20" class="t-acc2">control circuit</text>
+    <rect x="318" y="40" width="24" height="12" fill="none" stroke="#e6edf3" stroke-width="1.2"/>
+    <text x="330" y="66" text-anchor="middle" class="t-ink">F1</text>
+    <line x1="330" y1="52" x2="330" y2="86" stroke="#26394b"/>
+    <line x1="330" y1="86" x2="308" y2="108" stroke="#34d399"/><line x1="330" y1="86" x2="352" y2="108" stroke="#34d399"/>
+    <rect x="298" y="108" width="20" height="16" fill="none" stroke="#e6edf3" stroke-width="1.1"/>
+    <rect x="302" y="130" width="12" height="8" fill="#26394b"/>
+    <line x1="308" y1="124" x2="308" y2="138" stroke="#26394b"/>
+    <text x="295" y="152" class="t-dim" text-anchor="end">S1 stop (NC)</text>
+    <line x1="352" y1="108" x2="352" y2="164" stroke="#34d399"/>
+    <rect x="342" y="164" width="20" height="16" fill="none" stroke="#e6edf3" stroke-width="1.1"/>
+    <line x1="352" y1="164" x2="352" y2="180" stroke="#26394b"/>
+    <text x="377" y="175" class="t-dim">S2 start (NO)</text>
+    <line x1="352" y1="180" x2="330" y2="200" stroke="#34d399"/>
+    <rect x="316" y="200" width="28" height="22" fill="none" stroke="#e6edf3" stroke-width="1.3"/>
+    <text x="330" y="215" text-anchor="middle" class="t-ink">K1</text>
+    <line x1="330" y1="222" x2="330" y2="252" stroke="#26394b"/>
+    <text x="330" y="268" text-anchor="middle" class="t-acc">N</text>
+    <g stroke="#8b98a5" stroke-width="1">
+      <line x1="318" y1="120" x2="308" y2="120"/><line x1="318" y1="136" x2="308" y2="136"/>
+    </g>
+    <text x="320" y="292" text-anchor="middle" class="t-dim" font-size="7.5">K1 aux. contact seals the start circuit</text>
+  </g>
+</svg>
+
+<!-- Panel layout -->
+<svg class="svg-fig" id="svgPanel" viewBox="0 0 470 300" xmlns="http://www.w3.org/2000/svg">
+  <rect x="24" y="20" width="422" height="260" fill="rgba(148,163,184,.05)" stroke="#26394b"/>
+  <g fill="#26394b">
+    <circle cx="80" cy="20" r="6"/><circle cx="130" cy="20" r="6"/><circle cx="180" cy="20" r="6"/><circle cx="330" cy="20" r="6"/><circle cx="380" cy="20" r="6"/><circle cx="430" cy="20" r="6"/>
+  </g>
+  <text x="60" y="14" class="t-dim" font-size="7.5">cable entries</text>
+  <g stroke="#26394b" stroke-width="1.2"><line x1="52" y1="66" x2="418" y2="66"/><line x1="52" y1="140" x2="418" y2="140"/><line x1="52" y1="214" x2="418" y2="214"/></g>
+  <text x="44" y="58" class="t-dim" font-size="7.5">DIN 1</text>
+  <text x="44" y="132" class="t-dim" font-size="7.5">DIN 2</text>
+  <text x="44" y="206" class="t-dim" font-size="7.5">DIN 3</text>
+  <rect x="70" y="74" width="90" height="44" fill="rgba(56,189,248,.10)" stroke="#e6edf3" stroke-width="1.1"/>
+  <rect x="84" y="104" width="62" height="6" fill="#26394b"/>
+  <text x="115" y="98" text-anchor="middle" class="t-ink" font-size="9">Q1 · MCCB</text>
+  <rect x="200" y="74" width="90" height="44" fill="rgba(52,211,153,.10)" stroke="#e6edf3" stroke-width="1.1"/>
+  <rect x="212" y="104" width="66" height="6" fill="#26394b"/>
+  <text x="245" y="98" text-anchor="middle" class="t-ink" font-size="9">K1 · contactor</text>
+  <rect x="330" y="74" width="60" height="44" fill="rgba(148,163,184,.08)" stroke="#e6edf3" stroke-width="1.1"/>
+  <text x="360" y="98" text-anchor="middle" class="t-ink" font-size="9">A1 A2 coil</text>
+  <rect x="70" y="148" width="70" height="40" fill="rgba(56,189,248,.08)" stroke="#e6edf3" stroke-width="1.1"/>
+  <text x="105" y="172" text-anchor="middle" class="t-ink" font-size="9">F1 · fuse</text>
+  <rect x="170" y="148" width="40" height="40" fill="rgba(148,163,184,.08)" stroke="#e6edf3" stroke-width="1.1"/>
+  <text x="190" y="172" text-anchor="middle" class="t-ink" font-size="8">X1:1</text>
+  <rect x="214" y="148" width="40" height="40" fill="rgba(148,163,184,.08)" stroke="#e6edf3" stroke-width="1.1"/>
+  <text x="234" y="172" text-anchor="middle" class="t-ink" font-size="8">X1:2</text>
+  <rect x="258" y="148" width="40" height="40" fill="rgba(148,163,184,.08)" stroke="#e6edf3" stroke-width="1.1"/>
+  <text x="278" y="172" text-anchor="middle" class="t-ink" font-size="8">X1:3</text>
+  <text x="318" y="172" class="t-dim" font-size="7.5">terminal block</text>
+  <rect x="70" y="222" width="200" height="36" fill="rgba(148,163,184,.06)" stroke="#e6edf3" stroke-width="1.1"/>
+  <text x="170" y="244" text-anchor="middle" class="t-ink" font-size="9">cable duct / PE bar</text>
+  <g stroke="#8b98a5" stroke-width="1">
+    <line x1="430" y1="70" x2="430" y2="120"/><line x1="426" y1="120" x2="434" y2="120"/><line x1="430" y1="70" x2="430" y2="64"/>
+  </g>
+  <text x="440" y="98" class="t-dim" font-size="7.5">IP54</text>
+</svg>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ================= DATA ================= */
+var PROJECTS = [
+ {id:"pv-opt", title:"Lead-Free Perovskite Solar Cell Optimization", cat:"SCAPS-1D", year:"2025",
+  duration:"6 months", area:"Photovoltaics · Device Physics", application:"Lead-free solar cells", status:"Completed",
+  software:["SCAPS-1D","Python","Origin"],
+  desc:"Device-structure and thickness optimization of a lead-free perovskite absorber; J-V and EQE analysis.",
+  long:"A systematic SCAPS-1D study of a lead-free perovskite solar cell. The absorber thickness and carrier-transport layers were swept to maximize efficiency, and the optimized device was characterized by J-V, EQE, and integrated-current analysis. The final cell shows a large improvement in fill factor and short-circuit current over the baseline structure while keeping the absorber lead-free.",
+  figs:[
+   {img:"images/jv_curves.png", cap:"Fig. 1 - J-V characteristics: baseline vs optimized device"},
+   {svg:"svgStack", cap:"Fig. 2 - Device structure used in the simulation"}
+  ],
+  metrics:[["Voc","1.14 V"],["Jsc","26.2 mA/cm2"],["Fill factor","81%"],["Efficiency","24.2% (baseline 17.4%)"]],
+  summary:["Absorber sweep 150-1100 nm","Optimized at 720 nm","Room temperature","AM1.5G spectrum"]},
+ {id:"thermal", title:"Thermal Management of Power-Electronics Heat Sinks", cat:"COMSOL", year:"2025",
+  duration:"3 months", area:"Thermal Engineering · FEA", application:"Power-electronics cooling", status:"Completed",
+  software:["COMSOL Multiphysics","Python"],
+  desc:"Steady-state thermal analysis of a finned heat sink under volumetric power dissipation.",
+  long:"A 2D steady-state heat-transfer model of an aluminum finned heat sink with distributed heat generation. The study quantifies the temperature field, identifies the hot spot, and evaluates the effect of fin height on maximum temperature - a practical design-space sweep for power-electronics packaging. Boundary conditions: fixed base temperature and natural cooling on exposed surfaces.",
+  figs:[
+   {img:"images/heatsink_contour.png", cap:"Fig. 1 - Steady-state temperature field (COMSOL Multiphysics)"},
+   {img:"images/thermal_fin.png", cap:"Fig. 2 - Maximum temperature vs fin height design sweep"}
+  ],
+  metrics:[["Peak temperature","305.7 K (32.5 degC rise)"],["Dissipation","2 MW/m3"],["Geometry","80x26 mm, 5 fins"],["Material","Aluminum (k = 238 W/mK)"]],
+  summary:["Finned geometry","Parametric fin sweep","Steady-state solver","Thermal budget analysis"]},
+ {id:"ml-pred", title:"ML-Assisted Prediction of Photovoltaic Device Performance", cat:"Machine Learning", year:"2025",
+  duration:"4 months", area:"Applied ML · Device Analytics", application:"Simulation-driven design", status:"Completed",
+  software:["Python","Scikit-learn","SHAP"],
+  desc:"Gradient-boosting model predicting cell efficiency from material and structure parameters.",
+  long:"A gradient-boosting regressor trained on simulated device datasets to predict power-conversion efficiency from structural and material parameters. The model is validated with 10-fold cross-validation and interpreted with SHAP values to rank which parameters dominate performance - an explainable-AI layer for simulation-driven design.",
+  figs:[
+   {img:"images/ml_parity.png", cap:"Fig. 1 - Predicted vs measured PCE, 10-fold cross-validation"},
+   {img:"images/ml_shap.png", cap:"Fig. 2 - SHAP feature importance ranking"}
+  ],
+  metrics:[["R2 (test)","0.97"],["RMSE","0.32 % abs"],["Features","7 device parameters"],["Model","Gradient boosting"]],
+  summary:["Cross-validated","Explainable AI (SHAP)","Simulation-driven dataset","Feature ranking"]},
+ {id:"pn-field", title:"Electrostatic Field Analysis of a p-n Junction", cat:"COMSOL", year:"2024",
+  duration:"2 months", area:"Semiconductor Device Physics", application:"Device-physics foundation", status:"Completed",
+  software:["COMSOL Multiphysics"],
+  desc:"Electrostatic modeling of the depletion region, built-in field, and potential profile of a p-n junction.",
+  long:"A 2D electrostatic model of a p-n junction illustrating the depletion region, the built-in electric field, and the resulting potential profile. The analysis connects textbook device physics - charge density, field, and potential - to a concrete numerical solution and is used as the foundation for later solar-cell modeling work.",
+  figs:[
+   {svg:"svgPnjunc", cap:"Fig. 1 - Junction cross-section with depletion region"},
+   {svg:"svgPnProfiles", cap:"Fig. 2 - Charge, field, and potential profiles across the junction"}
+  ],
+  metrics:[["Doping (p)","1e17 cm-3"],["Doping (n)","1e16 cm-3"],["Built-in field","Depletion-limited"],["Width","Approx. 0.3 um"]],
+  summary:["Depletion region","Built-in potential","Poisson solution","Device physics"]},
+ {id:"motor-panel", title:"Three-Phase Motor Starter - Schematic and Panel Design", cat:"AutoCAD Electrical", year:"2024",
+  duration:"1 month", area:"Industrial Electrical Design", application:"Motor control panels", status:"Completed",
+  software:["AutoCAD Electrical"],
+  desc:"Full industrial motor-starting circuit: power and control schematics plus panel layout and documentation.",
+  long:"A complete direct-on-line motor starter for a three-phase induction motor - breaker, contactor, control circuit with start/stop pushbuttons, and auxiliary sealing contact. The deliverables include the power schematic, the ladder-style control circuit, a panel layout with DIN-rail mounting, and the associated BOM and documentation set produced in AutoCAD Electrical.",
+  figs:[
+   {svg:"svgSchematic", cap:"Fig. 1 - Power and control schematic"},
+   {svg:"svgPanel", cap:"Fig. 2 - Panel layout (front view)"}
+  ],
+  metrics:[["Supply","3-phase 415 V"],["Components","Q1, K1, F1, S1, S2, X1"],["Pages","2 (power + control)"],["Format","AutoCAD Electrical"]],
+  summary:["IEC symbols","Reference designators","Panel layout","BOM-ready"]},
+ {id:"eqe-analysis", title:"Spectral Response and EQE Analysis of Thin-Film Cells", cat:"SCAPS-1D", year:"2024",
+  duration:"2 months", area:"Photovoltaics · Spectroscopy", application:"Absorber band-gap guidance", status:"Completed",
+  software:["SCAPS-1D","Python"],
+  desc:"External quantum efficiency spectra and AM1.5G-integrated current density for thin-film absorbers.",
+  long:"Calculation of the external quantum efficiency of thin-film solar cells and its integration against the AM1.5G photon flux to estimate the short-circuit current density. The analysis links the spectral response to the achievable Jsc and is used to guide absorber band-gap and thickness choices.",
+  figs:[
+   {img:"images/eqe_spectrum.png", cap:"Fig. 1 - EQE spectra: baseline vs optimized absorber"},
+   {img:"images/jsc_integration.png", cap:"Fig. 2 - EQE with AM1.5G-integrated Jsc"}
+  ],
+  metrics:[["Peak EQE","94 % at 540 nm"],["Integrated Jsc","25.9 mA/cm2"],["Range","300-820 nm"],["Reference","AM1.5G"]],
+  summary:["Spectral analysis","Band-gap guidance","Integrated current","Python pipeline"]}
+];
+var FILTERS = ["All","SCAPS-1D","COMSOL","Machine Learning","AutoCAD Electrical"];
+var PUBS = [
+ {t:"Performance Optimization of Lead-Free Perovskite Solar Cells via SCAPS-1D Numerical Simulation",
+  j:"Solar Energy Materials & Solar Cells", y:"2025", doi:"10.1016/j.solmat.2025.000001", pdf:"#"},
+ {t:"A Machine Learning Framework for Predicting Photovoltaic Device Performance from Material Parameters",
+  j:"IEEE Access", y:"2024", doi:"10.1109/ACCESS.2024.000002", pdf:"#"},
+ {t:"Thermal Performance Analysis of Finned Heat Sinks for Power Electronics Applications",
+  j:"Applied Thermal Engineering", y:"2024", doi:"10.1016/j.applthermaleng.2024.000003", pdf:"#"},
+ {t:"Numerical Study of Charge Transport in p-n Junction Devices",
+  j:"Materials Today: Proceedings", y:"2023", doi:"10.1016/j.matpr.2023.000004", pdf:null}
+];
+var EXPERTISE = [
+ {n:"SCAPS-1D", d:"Photovoltaic device simulation", items:["Photovoltaic simulation","Device optimization","Parameter sweeps","Performance analysis"]},
+ {n:"COMSOL Multiphysics", d:"Multiphysics finite-element modeling", items:["Semiconductor simulation","Heat transfer","Electromagnetics","Multiphysics modeling"]},
+ {n:"AutoCAD Electrical", d:"Industrial electrical documentation", items:["Electrical schematics","Circuit design","Panel layouts","Documentation"]},
+ {n:"Machine Learning", d:"Data-driven engineering", items:["Predictive modeling","Explainable AI","Engineering optimization","Data analysis"]},
+ {n:"Python", d:"Scientific computing & automation", items:["Automation","Scientific computing","Data visualization","Workflow tooling"]}
+];
+var LINKS = [
+ ["Email","hello@alexrivera.dev","mailto:hello@alexrivera.dev"],
+ ["GitHub","github.com/alexrivera","https://github.com/alexrivera"],
+ ["LinkedIn","linkedin.com/in/alexrivera","https://linkedin.com/in/alexrivera"],
+ ["Google Scholar","scholar.google.com","https://scholar.google.com"],
+ ["ResearchGate","researchgate.net","https://researchgate.net"]
+];
+
+/* ================= HELPERS ================= */
+function $(s,c){return (c||document).querySelector(s)}
+function $$(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))}
+function pad(n){return String(n).padStart(2,"0")}
+function svgById(id){var n=$("#"+id);return n?n.cloneNode(true):null}
+
+/* ================= ICONS (expertise) ================= */
+function icon(k){
+  var c="stroke='#34d399' stroke-width='1.7' fill='none' stroke-linecap='round' stroke-linejoin='round'";
+  if(k===0) return "<svg class='exp-ico' viewBox='0 0 38 38'><circle cx='19' cy='19' r='6' "+c+"/><circle cx='19' cy='19' r='11' "+c+" opacity='.5'/><path d='M19 0v6M19 32v6M0 19h6M32 19h6' "+c+"/></svg>";
+  if(k===1) return "<svg class='exp-ico' viewBox='0 0 38 38'><path d='M4 30a18 18 0 0 1 30 0' "+c+"/><path d='M10 30a12 12 0 0 1 18 0' "+c+" opacity='.65'/><path d='M16 30a6 6 0 0 1 6 0' "+c+" opacity='.4'/><path d='M0 30h38' "+c+" opacity='.4'/></svg>";
+  if(k===2) return "<svg class='exp-ico' viewBox='0 0 38 38'><rect x='6' y='6' width='26' height='26' "+c+"/><path d='M6 14h26M6 24h26M14 6v26M24 6v26' "+c+" opacity='.45'/><circle cx='19' cy='19' r='3.4' "+c+"/></svg>";
+  if(k===3) return "<svg class='exp-ico' viewBox='0 0 38 38'><circle cx='9' cy='9' r='3.4' "+c+"/><circle cx='29' cy='29' r='3.4' "+c+"/><circle cx='29' cy='9' r='3.4' "+c+" opacity='.5'/><circle cx='9' cy='29' r='3.4' "+c+" opacity='.5'/><path d='M12 12l14 14M12 26l14-14' "+c+"/></svg>";
+  return "<svg class='exp-ico' viewBox='0 0 38 38'><path d='M14 33l4-12H9l14-16-4 12h9L14 33z' "+c+"/></svg>";
+}
+
+/* ================= REVEAL OBSERVER ================= */
+var io = new IntersectionObserver(function(es){
+  es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("on"); io.unobserve(en.target); } });
+},{threshold:.12});
+
+/* ================= RENDER: EXPERTISE ================= */
+$("#expGrid").innerHTML = EXPERTISE.map(function(e,i){
+  return "<article class='exp-card rv' style='transition-delay:"+(i%3)*70+"ms'>"
+   +"<span class='exp-num'>0"+(i+1)+"</span>"+icon(i)
+   +"<h3>"+e.n+" <span style='font-family:var(--mono);font-size:.6rem;color:var(--muted);font-weight:400'>· "+e.d+"</span></h3>"
+   +"<ul>"+e.items.map(function(x){return "<li>"+x+"</li>"}).join("")+"</ul></article>";
+}).join("");
+
+/* ================= RENDER: PORTFOLIO ================= */
+var grid = $("#grid");
+function figMarkup(f){
+  if(f.img) return "<img src='"+f.img+"' alt='Figure' loading='lazy'>";
+  var s = svgById(f.svg);
+  if(!s) return "";
+  return s.outerHTML;
+}
+function renderGrid(list){
+  grid.innerHTML = list.map(function(p,i){
+    var f = p.figs[0];
+    return "<article class='card rv' data-id='"+p.id+"' data-cat='"+p.cat+"' style='transition-delay:"+(i%2)*80+"ms'>"
+     +"<div class='card-media'>"+figMarkup(f)+"<span class='card-num mono'>"+pad(i+1)+"</span>"
+     +"<span class='card-cat mono'>"+p.cat.toUpperCase()+"</span></div>"
+     +"<div class='card-body'><h3>"+p.title+"</h3><p>"+p.desc+"</p>"
+     +"<div class='card-tags mono'>"+p.software.map(function(t){return "<span>"+t+"</span>"}).join("")+"</div>"
+     +"<div class='card-view mono'>VIEW DETAILS <span>↗</span></div></div></article>";
+  }).join("");
+  $$(".rv", grid).forEach(function(el){ io.observe(el); });
+}
+renderGrid(PROJECTS);
+
+/* ================= FILTERS ================= */
+var filtersEl = $("#filters"), countEl = $("#workCount");
+function renderFilters(){
+  filtersEl.innerHTML = FILTERS.map(function(f,i){
+    var n = f==="All" ? PROJECTS.length : PROJECTS.filter(function(p){return p.cat===f}).length;
+    return "<button class='chip"+(i===0?" active":"")+"' data-f='"+f+"'>"+f.toUpperCase()+" ("+pad(n)+")</button>";
+  }).join("");
+  countEl.textContent = "SHOWING "+pad(PROJECTS.length)+" PROJECTS";
+}
+renderFilters();
+filtersEl.addEventListener("click", function(e){
+  var btn = e.target.closest(".chip"); if(!btn) return;
+  $$(".chip", filtersEl).forEach(function(c){c.classList.remove("active")});
+  btn.classList.add("active");
+  var f = btn.dataset.f, shown = 0;
+  $$(".card", grid).forEach(function(card){
+    var match = f==="All" || card.dataset.cat===f;
+    if(match){ shown++; card.style.display=""; card.classList.remove("pop"); void card.offsetWidth; card.classList.add("pop"); }
+    else card.style.display="none";
+  });
+  countEl.textContent = "SHOWING "+pad(shown)+" / "+pad(PROJECTS.length)+" PROJECTS";
+});
+
+/* ================= MODAL ================= */
+var modal = $("#modal");
+function openModal(p){
+  $("#mCat").textContent = p.cat.toUpperCase()+" · "+p.year;
+  $("#mTitle").textContent = p.title;
+  $("#mDesc").textContent = p.long;
+  $("#mInfo").innerHTML =
+    "<div class='modal-meta'>"
+    +"<div><b>DURATION</b><span>"+p.duration+"</span></div>"
+    +"<div><b>RESEARCH AREA</b><span>"+p.area+"</span></div>"
+    +"<div><b>APPLICATION</b><span>"+p.application+"</span></div>"
+    +"<div><b>STATUS</b><span>"+p.status+"</span></div>"
+    +"</div>"
+    +"<h4 class='modal-sec'>SELECTED OUTPUTS ON DISPLAY</h4>"
+    +"<ul class='modal-outputs'>"+p.figs.map(function(f){
+      var t = f.cap ? f.cap.replace(/^Fig\.\s*\d+\s*-\s*/,"") : "Figure";
+      return "<li>"+t+"</li>";
+    }).join("")+"</ul>";
+  $("#mMeta").innerHTML = p.metrics.map(function(m){
+    return "<div><b>"+m[0].toUpperCase()+"</b><span>"+m[1]+"</span></div>";
+  }).join("");
+  $("#mSum").innerHTML = p.summary.map(function(s){return "<span>"+s+"</span>"}).join("");
+  $("#mFigs").innerHTML = p.figs.map(function(f){
+    var cap = f.cap ? "<figcaption>"+f.cap+"</figcaption>" : "";
+    return "<figure class='mfig'><div class='mfig-media'>"+figMarkup(f)+"</div>"+cap+"</figure>";
+  }).join("");
+  modal.classList.add("open"); modal.setAttribute("aria-hidden","false");
+  document.body.classList.add("lock");
+}
+function closeModal(){
+  modal.classList.remove("open"); modal.setAttribute("aria-hidden","true");
+  document.body.classList.remove("lock");
+}
+grid.addEventListener("click", function(e){
+  var card = e.target.closest(".card"); if(!card) return;
+  var p = PROJECTS.filter(function(x){return x.id===card.dataset.id})[0];
+  if(p) openModal(p);
+});
+modal.addEventListener("click", function(e){ if(e.target.closest("[data-close]")) closeModal(); });
+document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeModal(); });
+
+/* ================= PUBLICATIONS ================= */
+$("#pubGrid").innerHTML = PUBS.map(function(p){
+  var links = "<a href='https://doi.org/"+p.doi+"' target='_blank' rel='noopener'>DOI ↗</a>";
+  if(p.pdf) links += "<a href='"+p.pdf+"'>PDF ↗</a>";
+  return "<article class='pub rv'><span class='pub-year mono'>"+p.y+"</span><div>"
+   +"<h3>"+p.t+"</h3><div class='pub-journal mono'>"+p.j+"</div><div class='pub-links'>"+links+"</div></div>"
+   +"<span class='pub-tag mono'>PEER-REVIEWED</span></article>";
+}).join("");
+
+/* ================= CONTACT ================= */
+$("#contactLinks").innerHTML = LINKS.map(function(l){
+  return "<a class='clink mono' href='"+l[2]+"' target='_blank' rel='noopener'><small>"+l[0].toUpperCase()+"</small>"
+   +"<b>"+l[1]+"<span class='up'>↗</span></b></a>";
+}).join("");
+
+/* ================= REVEAL (observe) ================= */
+$$(".rv").forEach(function(el){ io.observe(el); });
+
+/* ================= NAV ================= */
+var navIO = new IntersectionObserver(function(es){
+  es.forEach(function(en){
+    if(en.isIntersecting){
+      $$("#nav a").forEach(function(a){ a.classList.toggle("active", a.getAttribute("href")==="#"+en.target.id); });
+    }
+  });
+},{rootMargin:"-40% 0px -55% 0px"});
+["home","about","expertise","portfolio","publications","resume","contact"].forEach(function(id){
+  var s = document.getElementById(id); if(s) navIO.observe(s);
+});
+$("#navOpen").addEventListener("click", function(){
+  var open = $("#nav").classList.toggle("open");
+  this.setAttribute("aria-expanded", open ? "true" : "false");
+});
+$$("#nav a").forEach(function(a){ a.addEventListener("click", function(){ $("#nav").classList.remove("open"); }); });
+
+/* ================= SUBTLE PARALLAX ================= */
+if(!reduced){
+  var glow = $("#glow");
+  window.addEventListener("mousemove", function(e){
+    var x = (e.clientX/innerWidth - .5) * 18, y = (e.clientY/innerHeight - .5) * 18;
+    glow.style.setProperty("--px", x+"px"); glow.style.setProperty("--py", y+"px");
+  },{passive:true});
+}
+
+/* ================= MISC ================= */
+$("#yr").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

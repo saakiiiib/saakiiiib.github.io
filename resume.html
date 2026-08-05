@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- ✏️ PERSONALIZE: same replacement pass as index.html (name, contact, university, certifications, publications). Print-friendly. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Rivera — Resume</title>
+<style>
+:root{--ink:#111827;--muted:#4b5563;--acc:#047857;--line:#d1d5db}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--ink);line-height:1.55;background:#fff}
+.wrap{max-width:820px;margin:0 auto;padding:48px 40px}
+h1{font-size:1.9rem;letter-spacing:-.02em}
+h2{font-size:.72rem;letter-spacing:.18em;color:var(--acc);text-transform:uppercase;margin:26px 0 10px;border-bottom:1px solid var(--line);padding-bottom:6px}
+.contact{font-size:.82rem;color:var(--muted);margin-top:6px;display:flex;gap:16px;flex-wrap:wrap}
+.item{margin-bottom:12px}
+.item h3{font-size:.98rem;font-weight:600}
+.item .when{font-size:.74rem;color:var(--acc);font-weight:600;letter-spacing:.06em}
+.item p{font-size:.88rem;color:var(--muted);margin-top:3px}
+.row{display:grid;grid-template-columns:150px 1fr;gap:14px;margin-bottom:8px;font-size:.88rem}
+.row b{font-weight:600}
+ul.pub{list-style:none;font-size:.88rem}
+ul.pub li{margin-bottom:8px}
+ul.pub small{display:block;color:var(--muted);font-size:.78rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-size:.76rem;border:1px solid var(--line);padding:2px 8px;border-radius:3px;color:var(--muted)}
+@media print{body{background:#fff}.wrap{padding:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Alex Rivera</h1>
+  <div class="contact">
+    <span>Simulation &amp; Machine Learning Engineer</span>
+    <span>hello@alexrivera.dev</span>
+    <span>github.com/alexrivera</span>
+    <span>linkedin.com/in/alexrivera</span>
+  </div>
+
+  <h2>Professional Summary</h2>
+  <p style="font-size:.92rem;color:var(--muted)">Engineer with a research focus on photovoltaic device simulation (SCAPS-1D), multiphysics modeling (COMSOL Multiphysics), and applied machine learning. Proven ability to build reproducible numerical workflows, produce publication-quality figures, and document engineering designs professionally (AutoCAD Electrical).</p>
+
+  <h2>Education</h2>
+  <div class="item"><h3>B.Sc. Electrical &amp; Electronic Engineering — Renewable Energy</h3><div class="when">2019 — 2023 · TODO: INSTITUTION</div><p>Thesis: numerical optimization of lead-free perovskite solar cells using SCAPS-1D.</p></div>
+
+  <h2>Research Experience</h2>
+  <div class="item"><h3>Independent Research — Photovoltaic Device Simulation</h3><div class="when">2023 — Present</div><p>Material and thickness optimization of perovskite absorbers; J–V, EQE, and spectral-response analysis; validation against published data.</p></div>
+  <div class="item"><h3>Thermal Design Analysis — Power Electronics</h3><div class="when">2024</div><p>Steady-state thermal modeling of finned heat sinks in COMSOL; parametric design sweeps and junction-temperature budgets.</p></div>
+  <div class="item"><h3>Machine Learning for PV Performance Prediction</h3><div class="when">2024 — 2025</div><p>Gradient-boosting models on device datasets; SHAP feature analysis; cross-validated evaluation.</p></div>
+  <div class="item"><h3>Industrial Electrical Design</h3><div class="when">2024</div><p>Three-phase motor starter: schematics, panel layout, and BOM in AutoCAD Electrical.</p></div>
+
+  <h2>Technical Skills</h2>
+  <div class="row"><b>Device simulation</b><span>SCAPS-1D, drift-diffusion modeling, J–V / EQE analysis, parameter sweeps</span></div>
+  <div class="row"><b>Multiphysics FEA</b><span>COMSOL Multiphysics — heat transfer, electrostatics, meshing, convergence</span></div>
+  <div class="row"><b>Electrical design</b><span>AutoCAD Electrical — schematics, panel layouts, BOM, documentation</span></div>
+  <div class="row"><b>Machine learning</b><span>Scikit-learn, gradient boosting, explainable AI (SHAP), cross-validation</span></div>
+  <div class="row"><b>Programming</b><span>Python (NumPy, Pandas, Matplotlib), MATLAB, automation scripting</span></div>
+
+  <h2>Software Proficiency</h2>
+  <div class="chips"><span>SCAPS-1D</span><span>COMSOL Multiphysics</span><span>AutoCAD Electrical</span><span>Python</span><span>MATLAB</span><span>Origin</span><span>LaTeX</span><span>Git</span></div>
+
+  <h2>Certifications</h2>
+  <div class="item"><p>TODO: add certifications (machine learning, numerical methods, AutoCAD Electrical, MATLAB, etc.)</p></div>
+
+  <h2>Publications</h2>
+  <ul class="pub">
+    <li>Performance Optimization of Lead-Free Perovskite Solar Cells via SCAPS-1D Numerical Simulation <small>Solar Energy Materials &amp; Solar Cells, 2025 · DOI: 10.1016/j.solmat.2025.000001</small></li>
+    <li>A Machine Learning Framework for Predicting Photovoltaic Device Performance <small>IEEE Access, 2024 · DOI: 10.1109/ACCESS.2024.000002</small></li>
+    <li>Thermal Performance Analysis of Finned Heat Sinks for Power Electronics Applications <small>Applied Thermal Engineering, 2024 · DOI: 10.1016/j.applthermaleng.2024.000003</small></li>
+    <li>Numerical Study of Charge Transport in p-n Junction Devices <small>Materials Today: Proceedings, 2023 · DOI: 10.1016/j.matpr.2023.000004</small></li>
+  </ul>
+</div>
+</body>
+</html>
