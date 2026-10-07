@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>M. Nazmus Sakib — CV</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <style>
-:root{--ink:#111827;--muted:#4b5563;--acc:#047857;--line:#d1d5db;--todo:#b91c1c}
+:root{--ink:#111827;--muted:#4b5563;--acc:#047857;--line:#d1d5db}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--ink);line-height:1.5;background:#fff}
 .wrap{max-width:820px;margin:0 auto;padding:40px 36px}
@@ -21,8 +22,20 @@ ul{margin:4px 0 0 18px;font-size:.86rem;color:var(--ink)}
 ul li{margin-bottom:3px}
 .row{display:grid;grid-template-columns:140px 1fr;gap:12px;margin-bottom:5px;font-size:.86rem}
 .row b{font-weight:600}
-.todo{color:var(--todo);font-weight:600}
-@media print{.wrap{padding:0}.todo{color:#000}}
+@media print{
+  @page{margin:14mm 15mm}
+  html,body{background:#fff;color:#000}
+  body{font-size:10.5pt;line-height:1.38}
+  .wrap{max-width:none;margin:0;padding:0}
+  h1{font-size:19pt}
+  h2{color:#000;border-bottom:1px solid #000;font-size:8pt;margin:13pt 0 5pt;page-break-after:avoid}
+  h3,.item h3{color:#000;page-break-after:avoid}
+  .sub,.contact{color:#222}
+  .when{color:#000}
+  ul{color:#000}
+  .item,.row{page-break-inside:avoid}
+  a{color:#000;text-decoration:none}
+}
 </style>
 </head>
 <body>
@@ -36,7 +49,7 @@ ul li{margin-bottom:3px}
   </div>
 
   <h2>Research interests</h2>
-  <p class="sub">Photovoltaics; optoelectronics; semiconductor physics; materials science; lead-free perovskite solar cells; device simulation and loss analysis; machine learning for materials and devices with honest validation; scientific workflow automation.</p>
+  <p class="sub">Photovoltaics; optoelectronics; semiconductor physics; materials science; lead-free perovskite solar cells; device simulation and loss analysis; machine learning for materials and devices; scientific workflow automation.</p>
 
   <h2>Education</h2>
   <div class="item">
@@ -56,7 +69,7 @@ ul li{margin-bottom:3px}
     <ul>
       <li>Simulated CsSnI₃, CsSnBr₃ and CsSnCl₃ in one Al/ITO/WS₂/CsSnX₃/NiOₓ/Au structure in SCAPS-1D with every input taken from published sources; optimized each absorber.</li>
       <li>Split the recombination current into bulk, radiative, Auger, interface and contact channels and used front/back interface tests to find each device's limiting loss.</li>
-      <li>Built a 9,800-device SCAPS dataset and trained five ML models with grouped cross-validation (no near-duplicate leakage) and SHAP, cross-checked against the device physics.</li>
+      <li>Built a 9,800-device SCAPS-1D dataset and trained five ML models with grouped cross-validation, so near-duplicate devices never sit in train and test together, with SHAP rankings checked against the device physics.</li>
     </ul>
   </div>
   <div class="item">
@@ -66,21 +79,21 @@ ul li{margin-bottom:3px}
 
   <h2>Software and engineering projects</h2>
   <div class="item">
-    <h3>Schema-agnostic ML pipeline for SCAPS datasets <span class="sub">· github.com/saakiiiib/ML</span></h3>
-    <ul><li>Per-dataset config, automatic log transforms, six model families, random and grouped CV with nested tuning, SHAP per model and fold; runs on Google Colab.</li></ul>
+    <h3>Configurable ML pipeline for CSV simulation tables <span class="sub">· github.com/saakiiiib/ML</span></h3>
+    <ul><li>Per-dataset config, automatic log transforms for decade-spaced inputs, eight model scripts (MLP, CatBoost, decision tree, extra trees, KNN, LightGBM, random forest, XGBoost), randomized search over random K-folds, SHAP with parity and residual plots per target; runs on Google Colab.</li></ul>
   </div>
   <div class="item">
-    <h3>COMSOL MCP server</h3>
-    <ul><li>Exposes COMSOL's Java API to AI agents (Python, FastMCP, JPype); three-layer design with a 229-test suite.</li></ul>
+    <h3>COMSOL MCP server <span class="sub">· private code</span></h3>
+    <ul><li>Exposes COMSOL's Java API to AI agents (Python, FastMCP, JPype); three-layer design with its own test suite.</li></ul>
   </div>
   <div class="item">
-    <h3>AutoCAD Electrical automation</h3>
+    <h3>AutoCAD Electrical automation <span class="sub">· private code</span></h3>
     <ul><li>Python pipeline that turns room descriptions into DXF floor plans, single-line diagrams and bills of materials.</li></ul>
   </div>
 
   <h2>Skills</h2>
   <div class="row"><b>Simulation</b><span>SCAPS-1D (batch scripting, J–V, QE, recombination analysis), COMSOL Multiphysics</span></div>
-  <div class="row"><b>Machine learning</b><span>scikit-learn, XGBoost, LightGBM, neural networks, grouped cross-validation, SHAP</span></div>
+  <div class="row"><b>Machine learning</b><span>scikit-learn, XGBoost, LightGBM, MLP (scikit-learn), grouped cross-validation, SHAP</span></div>
   <div class="row"><b>Programming</b><span>Python (NumPy, pandas, Matplotlib), Java (COMSOL API), Git</span></div>
   <div class="row"><b>Tools</b><span>OriginPro, AutoCAD Electrical, Google Colab</span></div>
   <div class="row"><b>Languages</b><span>Bengali (native), English</span></div>
