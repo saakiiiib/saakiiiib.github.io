@@ -1,19 +1,13 @@
 <!DOCTYPE html>
-<!--
-  ✏️ PERSONALIZE (3 steps):
-  1. Replace "Alex Rivera" and "Simulation & Machine Learning Engineer" everywhere.
-  2. Replace "hello@alexrivera.dev", social URLs, and publication DOIs (marked with TODO).
-  3. Swap images/ figures with your own real simulation outputs (same filenames keep it easy).
--->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alex Rivera — Simulation &amp; Machine Learning Engineer</title>
-<meta name="description" content="Portfolio of Alex Rivera — simulation, photovoltaic device engineering, thermal analysis and applied machine learning. Selected projects, publications and resume.">
+<title>M. Nazmus Sakib — Perovskite Solar Cells &amp; Machine Learning</title>
+<meta name="description" content="M. Nazmus Sakib, EEE researcher at Islamic University, Bangladesh: lead-free perovskite solar cell simulation (SCAPS-1D) and machine learning.">
 <meta name="keywords" content="SCAPS-1D, COMSOL Multiphysics, AutoCAD Electrical, machine learning, photovoltaic simulation, thermal analysis">
 <meta name="theme-color" content="#0b1117">
-<meta property="og:title" content="Alex Rivera — Simulation & Machine Learning Engineer">
+<meta property="og:title" content="M. Nazmus Sakib — Researcher, Perovskite Solar Cells & Machine Learning">
 <meta property="og:description" content="Engineering simulations, research and selected project outcomes in photovoltaics, thermal analysis and applied ML.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@latest/400.css">
@@ -271,10 +265,10 @@ footer{border-top:1px solid var(--line)}
 <div class="bg-glow" id="glow" aria-hidden="true"></div>
 
 <header class="site-head">
-  <a class="logo" href="#home"><b>‹/›</b> ALEX RIVERA</a>
+  <a class="logo" href="#home"><b>‹/›</b> M. NAZMUS SAKIB</a>
   <nav class="site-nav" id="nav" aria-label="Primary">
     <a href="#home">HOME</a><a href="#about">ABOUT</a><a href="#expertise">EXPERTISE</a>
-    <a href="#portfolio">PORTFOLIO</a><a href="#publications">PUBLICATIONS</a><a href="#resume">RESUME</a><a href="#contact">CONTACT</a>
+    <a href="#resume">RESUME</a><a href="#contact">CONTACT</a>
   </nav>
   <button class="nav-open" id="navOpen" aria-label="Menu" aria-expanded="false">☰</button>
 </header>
@@ -283,10 +277,10 @@ footer{border-top:1px solid var(--line)}
 <!-- ============ HOME ============ -->
 <section class="hero" id="home">
   <div class="hero-badge mono"><i></i> OPEN TO RESEARCH COLLABORATION</div>
-  <h1><span class="name">Alex Rivera</span><br><span class="role">Simulation &amp; Machine Learning Engineer</span></h1>
-  <p class="lede">I develop numerical models of photovoltaic devices and power-electronics systems, and I apply machine learning to accelerate engineering design. My work combines device physics, multiphysics simulation, and data-driven optimization — with results communicated as clean, reproducible figures and reports.</p>
+  <h1><span class="name">M. Nazmus Sakib</span><br><span class="role">Perovskite PV &amp; ML Researcher</span></h1>
+  <p class="lede">I simulate lead-free perovskite solar cells in SCAPS-1D and build machine-learning surrogate models that predict device performance, with careful, leakage-safe validation and SHAP-based interpretation.</p>
   <div class="hero-cta">
-    <a class="btn solid" href="#portfolio">VIEW PORTFOLIO</a>
+    <a class="btn solid" href="#about">ABOUT ME</a>
     <a class="btn" href="resume.html" download>DOWNLOAD RESUME ↓</a>
   </div>
   <div class="hero-tools">
@@ -304,21 +298,20 @@ footer{border-top:1px solid var(--line)}
   </div>
   <div class="about-grid">
     <div class="about-col">
-      <p class="lead rv">Simulation engineer focused on <em>photovoltaic device physics</em> and <em>applied machine learning</em> — from semiconductor device modeling to thermal management of power systems.</p>
-      <p class="rv">My work centers on building accurate numerical models, validating them against published data, and using them to guide engineering decisions. I have modeled perovskite and thin-film solar cells in SCAPS-1D, analyzed heat transfer in power-electronics hardware with COMSOL Multiphysics, and developed ML models that predict device performance from material parameters.</p>
-      <p class="rv">I am equally comfortable producing professional electrical documentation with AutoCAD Electrical and writing clean Python for data analysis, automation, and visualization. Every result I publish is reproducible, documented, and reviewed — this portfolio is the curated summary of that work.</p>
+      <p class="lead rv">Electrical &amp; electronic engineering researcher focused on <em>lead-free perovskite solar cells</em> and <em>applied machine learning</em>.</p>
+      <p class="rv">My current work models tin-based perovskite solar cells (CsSnI₃ and related absorbers) in SCAPS-1D and trains machine-learning surrogates on the resulting simulation grids. A focus of this work is validation: grouped and unseen-parameter tests that show how well a surrogate really predicts devices it has not seen.</p>
+      <p class="rv">I also automate simulation and design workflows with Python, COMSOL Multiphysics and AutoCAD Electrical.</p>
       <div class="about-sub rv">
         <h3>EDUCATION</h3>
         <ul>
-          <li>B.Sc. in Electrical &amp; Electronic Engineering — specialization in renewable energy (TODO: university, 2019–2023)</li>
-          <li>Continuing education: semiconductor device physics, numerical methods, applied statistics</li>
+          <li>Bachelor of Engineering in Electrical &amp; Electronic Engineering — Islamic University, Bangladesh</li>
         </ul>
       </div>
       <div class="about-sub rv">
         <h3>RESEARCH INTERESTS</h3>
         <ul>
           <li>Perovskite &amp; thin-film photovoltaic device simulation and optimization</li>
-          <li>Multiphysics thermal and electromagnetic modeling of power systems</li>
+          <li>Multiphysics simulation and automation with COMSOL</li>
           <li>Machine-learning surrogates and explainable AI for engineering design</li>
           <li>Automation of simulation workflows and scientific visualization</li>
         </ul>
@@ -331,7 +324,7 @@ footer{border-top:1px solid var(--line)}
       </div>
     </div>
     <div class="kb rv">
-      <span class="kb-tag">SELECTED WORK</span>
+      <span class="kb-tag">FOCUS</span>
       <p class="kb-q">“Simulation is where we can afford to be wrong — <span>so the experiments are right.</span>”</p>
       <div class="kb-meta">
         <span>SCAPS-1D · COMSOL · ML</span>
@@ -353,68 +346,34 @@ footer{border-top:1px solid var(--line)}
 </div></section>
 <div class="hairline"></div>
 
-<!-- ============ PORTFOLIO ============ -->
-<section id="portfolio"><div class="wrap">
-  <div class="sec-head">
-    <span class="sec-num">03 / PORTFOLIO</span>
-    <h2 class="sec-title">Selected Project Outcomes<small>REPRESENTATIVE RESULTS · NO SOURCE CODE OR PROPRIETARY DATA</small></h2>
-    <span class="sec-rule"></span>
-  </div>
-  <div class="filters" id="filters"></div>
-  <div class="work-count mono" id="workCount"></div>
-  <div class="grid" id="grid"></div>
-</div></section>
+
 <div class="hairline"></div>
 
-<!-- ============ PUBLICATIONS ============ -->
-<section id="publications"><div class="wrap">
-  <div class="sec-head">
-    <span class="sec-num">04 / PUBLICATIONS</span>
-    <h2 class="sec-title">Publications<small>JOURNAL ARTICLES AND CONFERENCE PROCEEDINGS</small></h2>
-    <span class="sec-rule"></span>
-  </div>
-  <div class="pub-grid" id="pubGrid"></div>
-</div></section>
+
 <div class="hairline"></div>
 
 <!-- ============ RESUME ============ -->
 <section id="resume"><div class="wrap">
   <div class="sec-head">
     <span class="sec-num">05 / RESUME</span>
-    <h2 class="sec-title">Resume / CV<small>EDUCATION · EXPERIENCE · SKILLS · CERTIFICATIONS</small></h2>
+    <h2 class="sec-title">Resume / CV<small>EDUCATION · RESEARCH · SKILLS</small></h2>
     <span class="sec-rule"></span>
   </div>
   <div class="res-grid">
     <div class="res-col">
       <h3>EDUCATION</h3>
       <div class="res-item rv">
-        <h4>B.Sc. Electrical &amp; Electronic Engineering</h4>
-        <div class="when">2019 — 2023 · TODO: INSTITUTION</div>
-        <p>Renewable energy concentration. Thesis: numerical optimization of perovskite solar cells (SCAPS-1D).</p>
+        <h4>Bachelor of Engineering — Electrical &amp; Electronic Engineering</h4>
+        <div class="when">ISLAMIC UNIVERSITY, BANGLADESH</div>
+        <p>Thesis research: lead-free perovskite solar cell simulation (SCAPS-1D) with machine-learning surrogate models.</p>
       </div>
       <h3 style="margin-top:2.2rem">RESEARCH EXPERIENCE</h3>
       <div class="res-item rv">
-        <h4>Independent research — photovoltaic device simulation</h4>
-        <div class="when">2023 — PRESENT</div>
-        <p>Material and thickness optimization of lead-free perovskite absorbers; J–V, EQE and spectral-response analysis; validation against published experimental data.</p>
+        <h4>Lead-free perovskite solar cells — simulation &amp; machine learning</h4>
+        <div class="when">ONGOING</div>
+        <p>SCAPS-1D simulation of tin-based perovskite absorbers; ML surrogate models (gradient boosting, neural networks) with grouped cross-validation, unseen-parameter tests and SHAP analysis.</p>
       </div>
-      <div class="res-item rv">
-        <h4>Thermal design analysis — power electronics (COMSOL)</h4>
-        <div class="when">2024</div>
-        <p>Steady-state thermal modeling of finned heat sinks; design-space sweeps; junction-temperature budgets.</p>
-      </div>
-      <div class="res-item rv">
-        <h4>Machine learning for PV performance prediction</h4>
-        <div class="when">2024 — 2025</div>
-        <p>Trained gradient-boosting models on device datasets; SHAP-based feature analysis; cross-validated evaluation.</p>
-      </div>
-      <h3 style="margin-top:2.2rem">CERTIFICATIONS</h3>
-      <div class="res-item rv">
-        <h4>Specializations &amp; courses</h4>
-        <div class="when">2022 — 2025</div>
-        <p>TODO: list certifications (e.g., machine learning, numerical methods, AutoCAD Electrical, MATLAB).</p>
-      </div>
-    </div>
+</div>
     <div class="res-col">
       <h3>TECHNICAL SKILLS</h3>
       <div class="skill-block">
@@ -423,19 +382,12 @@ footer{border-top:1px solid var(--line)}
         <div class="skill-row rv"><b>ELECTRICAL DESIGN</b><div class="skill-chips"><span>AutoCAD Electrical</span><span>Schematics</span><span>Panel layouts</span><span>BOM &amp; documentation</span></div></div>
         <div class="skill-row rv"><b>MACHINE LEARNING</b><div class="skill-chips"><span>Scikit-learn</span><span>Gradient boosting</span><span>Explainable AI (SHAP)</span><span>Cross-validation</span></div></div>
         <div class="skill-row rv"><b>PROGRAMMING</b><div class="skill-chips"><span>Python</span><span>NumPy / Pandas</span><span>Matplotlib</span><span>Automation scripting</span></div></div>
-        <div class="skill-row rv"><b>SCIENTIFIC TOOLS</b><div class="skill-chips"><span>Origin</span><span>MATLAB</span><span>LaTeX</span><span>Git</span></div></div>
+        <div class="skill-row rv"><b>SCIENTIFIC TOOLS</b><div class="skill-chips"><span>Origin</span><span>Git</span></div></div>
       </div>
-      <h3 style="margin-top:2.2rem">PUBLICATIONS</h3>
-      <div class="res-item rv">
-        <h4>4 peer-reviewed articles and proceedings</h4>
-        <div class="when">2023 — 2025</div>
-        <p>Full list with DOIs in the publications section above.</p>
       </div>
-    </div>
   </div>
   <div class="res-cta rv">
     <a class="btn solid" href="resume.html" download>DOWNLOAD FULL CV (PDF) ↓</a>
-    <a class="btn" href="#publications">VIEW PUBLICATIONS ↗</a>
   </div>
 </div></section>
 <div class="hairline"></div>
@@ -448,14 +400,14 @@ footer{border-top:1px solid var(--line)}
     <span class="sec-rule"></span>
   </div>
   <p class="contact-kicker mono">FOR RESEARCH COLLABORATIONS, CONSULTING, OR EMPLOYMENT OPPORTUNITIES:</p>
-  <a class="mega" id="mega" href="mailto:hello@alexrivera.dev">hello@alexrivera.dev<span class="mega-arr">↗</span></a>
+  <a class="mega" id="mega" href="mailto:nazmussakib101q@gmail.com">nazmussakib101q@gmail.com<span class="mega-arr">↗</span></a>
   <div class="contact-links" id="contactLinks"></div>
 </div></section>
 </main>
 
 <footer>
   <div class="foot-row">
-    <span>© <span id="yr">2026</span> ALEX RIVERA — SIMULATION &amp; MACHINE LEARNING ENGINEER</span>
+    <span>© <span id="yr">2026</span> M. NAZMUS SAKIB</span>
     <a class="btt" href="#home">BACK TO TOP ↑</a>
   </div>
 </footer>
@@ -668,85 +620,8 @@ footer{border-top:1px solid var(--line)}
 var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ================= DATA ================= */
-var PROJECTS = [
- {id:"pv-opt", title:"Lead-Free Perovskite Solar Cell Optimization", cat:"SCAPS-1D", year:"2025",
-  duration:"6 months", area:"Photovoltaics · Device Physics", application:"Lead-free solar cells", status:"Completed",
-  software:["SCAPS-1D","Python","Origin"],
-  desc:"Device-structure and thickness optimization of a lead-free perovskite absorber; J-V and EQE analysis.",
-  long:"A systematic SCAPS-1D study of a lead-free perovskite solar cell. The absorber thickness and carrier-transport layers were swept to maximize efficiency, and the optimized device was characterized by J-V, EQE, and integrated-current analysis. The final cell shows a large improvement in fill factor and short-circuit current over the baseline structure while keeping the absorber lead-free.",
-  figs:[
-   {img:"images/jv_curves.png", cap:"Fig. 1 - J-V characteristics: baseline vs optimized device"},
-   {svg:"svgStack", cap:"Fig. 2 - Device structure used in the simulation"}
-  ],
-  metrics:[["Voc","1.14 V"],["Jsc","26.2 mA/cm2"],["Fill factor","81%"],["Efficiency","24.2% (baseline 17.4%)"]],
-  summary:["Absorber sweep 150-1100 nm","Optimized at 720 nm","Room temperature","AM1.5G spectrum"]},
- {id:"thermal", title:"Thermal Management of Power-Electronics Heat Sinks", cat:"COMSOL", year:"2025",
-  duration:"3 months", area:"Thermal Engineering · FEA", application:"Power-electronics cooling", status:"Completed",
-  software:["COMSOL Multiphysics","Python"],
-  desc:"Steady-state thermal analysis of a finned heat sink under volumetric power dissipation.",
-  long:"A 2D steady-state heat-transfer model of an aluminum finned heat sink with distributed heat generation. The study quantifies the temperature field, identifies the hot spot, and evaluates the effect of fin height on maximum temperature - a practical design-space sweep for power-electronics packaging. Boundary conditions: fixed base temperature and natural cooling on exposed surfaces.",
-  figs:[
-   {img:"images/heatsink_contour.png", cap:"Fig. 1 - Steady-state temperature field (COMSOL Multiphysics)"},
-   {img:"images/thermal_fin.png", cap:"Fig. 2 - Maximum temperature vs fin height design sweep"}
-  ],
-  metrics:[["Peak temperature","305.7 K (32.5 degC rise)"],["Dissipation","2 MW/m3"],["Geometry","80x26 mm, 5 fins"],["Material","Aluminum (k = 238 W/mK)"]],
-  summary:["Finned geometry","Parametric fin sweep","Steady-state solver","Thermal budget analysis"]},
- {id:"ml-pred", title:"ML-Assisted Prediction of Photovoltaic Device Performance", cat:"Machine Learning", year:"2025",
-  duration:"4 months", area:"Applied ML · Device Analytics", application:"Simulation-driven design", status:"Completed",
-  software:["Python","Scikit-learn","SHAP"],
-  desc:"Gradient-boosting model predicting cell efficiency from material and structure parameters.",
-  long:"A gradient-boosting regressor trained on simulated device datasets to predict power-conversion efficiency from structural and material parameters. The model is validated with 10-fold cross-validation and interpreted with SHAP values to rank which parameters dominate performance - an explainable-AI layer for simulation-driven design.",
-  figs:[
-   {img:"images/ml_parity.png", cap:"Fig. 1 - Predicted vs measured PCE, 10-fold cross-validation"},
-   {img:"images/ml_shap.png", cap:"Fig. 2 - SHAP feature importance ranking"}
-  ],
-  metrics:[["R2 (test)","0.97"],["RMSE","0.32 % abs"],["Features","7 device parameters"],["Model","Gradient boosting"]],
-  summary:["Cross-validated","Explainable AI (SHAP)","Simulation-driven dataset","Feature ranking"]},
- {id:"pn-field", title:"Electrostatic Field Analysis of a p-n Junction", cat:"COMSOL", year:"2024",
-  duration:"2 months", area:"Semiconductor Device Physics", application:"Device-physics foundation", status:"Completed",
-  software:["COMSOL Multiphysics"],
-  desc:"Electrostatic modeling of the depletion region, built-in field, and potential profile of a p-n junction.",
-  long:"A 2D electrostatic model of a p-n junction illustrating the depletion region, the built-in electric field, and the resulting potential profile. The analysis connects textbook device physics - charge density, field, and potential - to a concrete numerical solution and is used as the foundation for later solar-cell modeling work.",
-  figs:[
-   {svg:"svgPnjunc", cap:"Fig. 1 - Junction cross-section with depletion region"},
-   {svg:"svgPnProfiles", cap:"Fig. 2 - Charge, field, and potential profiles across the junction"}
-  ],
-  metrics:[["Doping (p)","1e17 cm-3"],["Doping (n)","1e16 cm-3"],["Built-in field","Depletion-limited"],["Width","Approx. 0.3 um"]],
-  summary:["Depletion region","Built-in potential","Poisson solution","Device physics"]},
- {id:"motor-panel", title:"Three-Phase Motor Starter - Schematic and Panel Design", cat:"AutoCAD Electrical", year:"2024",
-  duration:"1 month", area:"Industrial Electrical Design", application:"Motor control panels", status:"Completed",
-  software:["AutoCAD Electrical"],
-  desc:"Full industrial motor-starting circuit: power and control schematics plus panel layout and documentation.",
-  long:"A complete direct-on-line motor starter for a three-phase induction motor - breaker, contactor, control circuit with start/stop pushbuttons, and auxiliary sealing contact. The deliverables include the power schematic, the ladder-style control circuit, a panel layout with DIN-rail mounting, and the associated BOM and documentation set produced in AutoCAD Electrical.",
-  figs:[
-   {svg:"svgSchematic", cap:"Fig. 1 - Power and control schematic"},
-   {svg:"svgPanel", cap:"Fig. 2 - Panel layout (front view)"}
-  ],
-  metrics:[["Supply","3-phase 415 V"],["Components","Q1, K1, F1, S1, S2, X1"],["Pages","2 (power + control)"],["Format","AutoCAD Electrical"]],
-  summary:["IEC symbols","Reference designators","Panel layout","BOM-ready"]},
- {id:"eqe-analysis", title:"Spectral Response and EQE Analysis of Thin-Film Cells", cat:"SCAPS-1D", year:"2024",
-  duration:"2 months", area:"Photovoltaics · Spectroscopy", application:"Absorber band-gap guidance", status:"Completed",
-  software:["SCAPS-1D","Python"],
-  desc:"External quantum efficiency spectra and AM1.5G-integrated current density for thin-film absorbers.",
-  long:"Calculation of the external quantum efficiency of thin-film solar cells and its integration against the AM1.5G photon flux to estimate the short-circuit current density. The analysis links the spectral response to the achievable Jsc and is used to guide absorber band-gap and thickness choices.",
-  figs:[
-   {img:"images/eqe_spectrum.png", cap:"Fig. 1 - EQE spectra: baseline vs optimized absorber"},
-   {img:"images/jsc_integration.png", cap:"Fig. 2 - EQE with AM1.5G-integrated Jsc"}
-  ],
-  metrics:[["Peak EQE","94 % at 540 nm"],["Integrated Jsc","25.9 mA/cm2"],["Range","300-820 nm"],["Reference","AM1.5G"]],
-  summary:["Spectral analysis","Band-gap guidance","Integrated current","Python pipeline"]}
-];
-var FILTERS = ["All","SCAPS-1D","COMSOL","Machine Learning","AutoCAD Electrical"];
-var PUBS = [
- {t:"Performance Optimization of Lead-Free Perovskite Solar Cells via SCAPS-1D Numerical Simulation",
-  j:"Solar Energy Materials & Solar Cells", y:"2025", doi:"10.1016/j.solmat.2025.000001", pdf:"#"},
- {t:"A Machine Learning Framework for Predicting Photovoltaic Device Performance from Material Parameters",
-  j:"IEEE Access", y:"2024", doi:"10.1109/ACCESS.2024.000002", pdf:"#"},
- {t:"Thermal Performance Analysis of Finned Heat Sinks for Power Electronics Applications",
-  j:"Applied Thermal Engineering", y:"2024", doi:"10.1016/j.applthermaleng.2024.000003", pdf:"#"},
- {t:"Numerical Study of Charge Transport in p-n Junction Devices",
-  j:"Materials Today: Proceedings", y:"2023", doi:"10.1016/j.matpr.2023.000004", pdf:null}
-];
+
+
 var EXPERTISE = [
  {n:"SCAPS-1D", d:"Photovoltaic device simulation", items:["Photovoltaic simulation","Device optimization","Parameter sweeps","Performance analysis"]},
  {n:"COMSOL Multiphysics", d:"Multiphysics finite-element modeling", items:["Semiconductor simulation","Heat transfer","Electromagnetics","Multiphysics modeling"]},
@@ -755,11 +630,9 @@ var EXPERTISE = [
  {n:"Python", d:"Scientific computing & automation", items:["Automation","Scientific computing","Data visualization","Workflow tooling"]}
 ];
 var LINKS = [
- ["Email","hello@alexrivera.dev","mailto:hello@alexrivera.dev"],
- ["GitHub","github.com/alexrivera","https://github.com/alexrivera"],
- ["LinkedIn","linkedin.com/in/alexrivera","https://linkedin.com/in/alexrivera"],
- ["Google Scholar","scholar.google.com","https://scholar.google.com"],
- ["ResearchGate","researchgate.net","https://researchgate.net"]
+ ["Email","nazmussakib101q@gmail.com","mailto:nazmussakib101q@gmail.com"],
+ ["GitHub","github.com/saakiiiib","https://github.com/saakiiiib"],
+ ["LinkedIn","linkedin.com/in/m-nazmus-sakib-89017a239","https://www.linkedin.com/in/m-nazmus-sakib-89017a239"]
 ];
 
 /* ================= HELPERS ================= */
@@ -791,101 +664,6 @@ $("#expGrid").innerHTML = EXPERTISE.map(function(e,i){
    +"<ul>"+e.items.map(function(x){return "<li>"+x+"</li>"}).join("")+"</ul></article>";
 }).join("");
 
-/* ================= RENDER: PORTFOLIO ================= */
-var grid = $("#grid");
-function figMarkup(f){
-  if(f.img) return "<img src='"+f.img+"' alt='Figure' loading='lazy'>";
-  var s = svgById(f.svg);
-  if(!s) return "";
-  return s.outerHTML;
-}
-function renderGrid(list){
-  grid.innerHTML = list.map(function(p,i){
-    var f = p.figs[0];
-    return "<article class='card rv' data-id='"+p.id+"' data-cat='"+p.cat+"' style='transition-delay:"+(i%2)*80+"ms'>"
-     +"<div class='card-media'>"+figMarkup(f)+"<span class='card-num mono'>"+pad(i+1)+"</span>"
-     +"<span class='card-cat mono'>"+p.cat.toUpperCase()+"</span></div>"
-     +"<div class='card-body'><h3>"+p.title+"</h3><p>"+p.desc+"</p>"
-     +"<div class='card-tags mono'>"+p.software.map(function(t){return "<span>"+t+"</span>"}).join("")+"</div>"
-     +"<div class='card-view mono'>VIEW DETAILS <span>↗</span></div></div></article>";
-  }).join("");
-  $$(".rv", grid).forEach(function(el){ io.observe(el); });
-}
-renderGrid(PROJECTS);
-
-/* ================= FILTERS ================= */
-var filtersEl = $("#filters"), countEl = $("#workCount");
-function renderFilters(){
-  filtersEl.innerHTML = FILTERS.map(function(f,i){
-    var n = f==="All" ? PROJECTS.length : PROJECTS.filter(function(p){return p.cat===f}).length;
-    return "<button class='chip"+(i===0?" active":"")+"' data-f='"+f+"'>"+f.toUpperCase()+" ("+pad(n)+")</button>";
-  }).join("");
-  countEl.textContent = "SHOWING "+pad(PROJECTS.length)+" PROJECTS";
-}
-renderFilters();
-filtersEl.addEventListener("click", function(e){
-  var btn = e.target.closest(".chip"); if(!btn) return;
-  $$(".chip", filtersEl).forEach(function(c){c.classList.remove("active")});
-  btn.classList.add("active");
-  var f = btn.dataset.f, shown = 0;
-  $$(".card", grid).forEach(function(card){
-    var match = f==="All" || card.dataset.cat===f;
-    if(match){ shown++; card.style.display=""; card.classList.remove("pop"); void card.offsetWidth; card.classList.add("pop"); }
-    else card.style.display="none";
-  });
-  countEl.textContent = "SHOWING "+pad(shown)+" / "+pad(PROJECTS.length)+" PROJECTS";
-});
-
-/* ================= MODAL ================= */
-var modal = $("#modal");
-function openModal(p){
-  $("#mCat").textContent = p.cat.toUpperCase()+" · "+p.year;
-  $("#mTitle").textContent = p.title;
-  $("#mDesc").textContent = p.long;
-  $("#mInfo").innerHTML =
-    "<div class='modal-meta'>"
-    +"<div><b>DURATION</b><span>"+p.duration+"</span></div>"
-    +"<div><b>RESEARCH AREA</b><span>"+p.area+"</span></div>"
-    +"<div><b>APPLICATION</b><span>"+p.application+"</span></div>"
-    +"<div><b>STATUS</b><span>"+p.status+"</span></div>"
-    +"</div>"
-    +"<h4 class='modal-sec'>SELECTED OUTPUTS ON DISPLAY</h4>"
-    +"<ul class='modal-outputs'>"+p.figs.map(function(f){
-      var t = f.cap ? f.cap.replace(/^Fig\.\s*\d+\s*-\s*/,"") : "Figure";
-      return "<li>"+t+"</li>";
-    }).join("")+"</ul>";
-  $("#mMeta").innerHTML = p.metrics.map(function(m){
-    return "<div><b>"+m[0].toUpperCase()+"</b><span>"+m[1]+"</span></div>";
-  }).join("");
-  $("#mSum").innerHTML = p.summary.map(function(s){return "<span>"+s+"</span>"}).join("");
-  $("#mFigs").innerHTML = p.figs.map(function(f){
-    var cap = f.cap ? "<figcaption>"+f.cap+"</figcaption>" : "";
-    return "<figure class='mfig'><div class='mfig-media'>"+figMarkup(f)+"</div>"+cap+"</figure>";
-  }).join("");
-  modal.classList.add("open"); modal.setAttribute("aria-hidden","false");
-  document.body.classList.add("lock");
-}
-function closeModal(){
-  modal.classList.remove("open"); modal.setAttribute("aria-hidden","true");
-  document.body.classList.remove("lock");
-}
-grid.addEventListener("click", function(e){
-  var card = e.target.closest(".card"); if(!card) return;
-  var p = PROJECTS.filter(function(x){return x.id===card.dataset.id})[0];
-  if(p) openModal(p);
-});
-modal.addEventListener("click", function(e){ if(e.target.closest("[data-close]")) closeModal(); });
-document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeModal(); });
-
-/* ================= PUBLICATIONS ================= */
-$("#pubGrid").innerHTML = PUBS.map(function(p){
-  var links = "<a href='https://doi.org/"+p.doi+"' target='_blank' rel='noopener'>DOI ↗</a>";
-  if(p.pdf) links += "<a href='"+p.pdf+"'>PDF ↗</a>";
-  return "<article class='pub rv'><span class='pub-year mono'>"+p.y+"</span><div>"
-   +"<h3>"+p.t+"</h3><div class='pub-journal mono'>"+p.j+"</div><div class='pub-links'>"+links+"</div></div>"
-   +"<span class='pub-tag mono'>PEER-REVIEWED</span></article>";
-}).join("");
-
 /* ================= CONTACT ================= */
 $("#contactLinks").innerHTML = LINKS.map(function(l){
   return "<a class='clink mono' href='"+l[2]+"' target='_blank' rel='noopener'><small>"+l[0].toUpperCase()+"</small>"
@@ -903,7 +681,7 @@ var navIO = new IntersectionObserver(function(es){
     }
   });
 },{rootMargin:"-40% 0px -55% 0px"});
-["home","about","expertise","portfolio","publications","resume","contact"].forEach(function(id){
+["home","about","expertise","resume","contact"].forEach(function(id){
   var s = document.getElementById(id); if(s) navIO.observe(s);
 });
 $("#navOpen").addEventListener("click", function(){
