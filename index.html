@@ -146,6 +146,7 @@ section{padding:120px 0;position:relative}
 .pcard .tag{font-size:.78rem;color:var(--cyan);margin-bottom:10px}
 .pcard p{color:var(--muted);font-size:.93rem}
 .pcard a.more{display:inline-block;margin-top:14px;font-size:.85rem;color:var(--sun);text-decoration:none}
+.priv{display:block;font-family:Inter,system-ui,sans-serif;font-size:.72rem;font-weight:500;color:var(--muted);letter-spacing:.04em;margin-top:3px}
 
 /* skills */
 .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -314,7 +315,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 40px;
         <rect x="210" y="40" width="70" height="40" rx="6" fill="none" stroke="#4fd1c5" stroke-width="2"/><text x="245" y="64" fill="#4fd1c5" font-size="11" text-anchor="middle">COMSOL</text>
         <path d="M90 60H115M185 60H210" stroke="#9aa6c4" stroke-dasharray="4 4"><animate attributeName="stroke-dashoffset" values="8;0" dur=".6s" repeatCount="indefinite"/></path>
       </svg>
-      <h3>COMSOL MCP server</h3>
+      <h3>COMSOL MCP server <span class="priv">(private code)</span></h3>
       <div class="tag">Python · FastMCP · JPype</div>
       <p>Gives AI agents access to COMSOL's Java API through a three-layer design, with its own test suite.</p>
     </div>
@@ -323,7 +324,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 40px;
         <path d="M30 20H270V100H30Z M140 20V60H270 M30 60H100" fill="none" stroke="#9aa6c4" stroke-width="2" stroke-dasharray="600" stroke-dashoffset="600"><animate attributeName="stroke-dashoffset" values="600;0;0" keyTimes="0;.6;1" dur="4s" repeatCount="indefinite"/></path>
         <circle cx="70" cy="40" r="5" fill="#ffb547"/><circle cx="200" cy="40" r="5" fill="#ffb547"/><circle cx="150" cy="82" r="5" fill="#ffb547"/>
       </svg>
-      <h3>AutoCAD Electrical automation</h3>
+      <h3>AutoCAD Electrical automation <span class="priv">(private code)</span></h3>
       <div class="tag">Python · DXF</div>
       <p>Turns a written room description into a DXF floor plan, a single-line diagram and a bill of materials.</p>
     </div>
@@ -462,6 +463,19 @@ const io = new IntersectionObserver(es => es.forEach(e => {
   io.unobserve(e.target);
 }), { threshold: .15 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// landing straight on a #hash skips past everything above the target, so those
+// sections would never intersect and would sit at opacity 0 until scrolled back
+function revealAbove(hash){
+  let target = null;
+  try { target = hash && hash.length > 1 ? document.querySelector(hash) : null; } catch { return; }
+  if(!target) return;
+  const cut = target.getBoundingClientRect().top + scrollY;
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => {
+    if(el.getBoundingClientRect().top + scrollY < cut){ el.classList.add('in'); io.unobserve(el); }
+  });
+}
+if(location.hash) requestAnimationFrame(() => revealAbove(location.hash));
 </script>
 </body>
 </html>
