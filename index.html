@@ -5,8 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>M. Nazmus Sakib — Photovoltaics, Semiconductor Devices & Machine Learning</title>
 <meta name="description" content="M. Nazmus Sakib: EEE researcher working on lead-free perovskite solar cells, device simulation and machine learning for materials.">
+<link rel="canonical" href="https://saakiiiib.github.io/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="M. Nazmus Sakib">
+<meta property="og:url" content="https://saakiiiib.github.io/">
+<meta property="og:title" content="M. Nazmus Sakib — Photovoltaics, Semiconductor Devices & Machine Learning">
+<meta property="og:description" content="EEE researcher working on lead-free perovskite solar cells, device simulation and machine learning for materials.">
+<meta property="og:image" content="https://saakiiiib.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="M. Nazmus Sakib — lead-free perovskite solar cells, simulated and understood.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="M. Nazmus Sakib — Photovoltaics, Semiconductor Devices & Machine Learning">
+<meta name="twitter:description" content="EEE researcher working on lead-free perovskite solar cells, device simulation and machine learning for materials.">
+<meta name="twitter:image" content="https://saakiiiib.github.io/og.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --night:#0b1020;--night2:#121a33;--ink:#e8ecf6;--muted:#9aa6c4;
@@ -17,7 +35,7 @@
 html{scroll-behavior:smooth}
 body{font-family:Inter,system-ui,sans-serif;background:var(--night);color:var(--ink);line-height:1.6;overflow-x:hidden}
 a{color:inherit}
-.mono{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sun)}
+.mono{font-family:Inter,system-ui,sans-serif;font-weight:600;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sun)}
 h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;letter-spacing:-.01em}
 .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
 
@@ -33,17 +51,38 @@ nav .logo span{color:var(--sun)}
 nav ul{display:flex;gap:26px;list-style:none;font-size:.88rem}
 nav ul a{text-decoration:none;color:var(--muted);transition:color .2s}
 nav ul a:hover{color:var(--ink)}
-@media(max-width:720px){nav ul{display:none}}
+nav ul a:focus-visible,.navtoggle:focus-visible,.btn:focus-visible,nav .logo:focus-visible,.more:focus-visible{outline:2px solid var(--sun);outline-offset:3px;border-radius:4px}
+.navtoggle{display:none;background:none;border:1px solid var(--line);border-radius:10px;color:var(--ink);width:42px;height:38px;cursor:pointer;align-items:center;justify-content:center}
+.navtoggle span{position:relative;display:block;width:18px;height:2px;background:var(--ink)}
+.navtoggle span::before,.navtoggle span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink)}
+.navtoggle span::before{top:-6px}.navtoggle span::after{top:6px}
+.navtoggle[aria-expanded=true] span{background:transparent}
+.navtoggle[aria-expanded=true] span::before{top:0;transform:rotate(45deg)}
+.navtoggle[aria-expanded=true] span::after{top:0;transform:rotate(-45deg)}
+@media(max-width:720px){
+  .navtoggle{display:flex}
+  nav{background:rgba(11,16,32,.75);backdrop-filter:blur(12px)}
+  nav ul{position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;
+    background:rgba(11,16,32,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
+    padding:6px 24px 14px;font-size:1rem}
+  nav ul[hidden]{display:none}
+  nav ul li{border-top:1px solid var(--line)}
+  nav ul a{display:block;padding:14px 0;color:var(--ink)}
+}
 
 /* hero */
 .hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
 #sky{position:absolute;inset:0;width:100%;height:100%}
 .hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;width:100%}
-@media(max-width:900px){.hero .wrap{grid-template-columns:1fr;padding-top:90px}}
-.hero h1{font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.02;margin:14px 0 20px}
+@media(max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:90px}
+  .hero{padding-bottom:40px}
+  .stack{margin-top:120px;transform:scale(.8);transform-origin:top center}
+  .stacklabel{margin-top:10px}
+}
+.hero h1{font-size:clamp(2.25rem,5.2vw,4.1rem);line-height:1.04;margin:14px 0 20px;max-width:15ch}
 .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--sun),var(--sun2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero p.lead{font-size:1.1rem;color:var(--muted);max-width:540px}
-.rotator{color:var(--ink);font-weight:600;display:inline-block;min-width:10ch;border-bottom:2px solid var(--sun)}
 .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
 .btn{padding:11px 20px;border-radius:999px;text-decoration:none;font-size:.9rem;font-weight:500;border:1px solid var(--line);transition:transform .2s,background .2s}
 .btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.06)}
@@ -114,8 +153,8 @@ section{padding:120px 0;position:relative}
 .skills h3{font-size:1.1rem;margin-bottom:10px}
 
 /* stats strip */
-.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:60px}
-@media(max-width:720px){.strip{grid-template-columns:1fr 1fr}}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:60px}
+@media(max-width:720px){.strip{grid-template-columns:1fr}}
 .stat{text-align:center;padding:22px 10px;border-top:1px solid var(--line)}
 .stat b{display:block;font-family:Fraunces,serif;font-size:2.4rem;color:var(--sun)}
 .stat span{font-size:.82rem;color:var(--muted)}
@@ -135,7 +174,8 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 40px;
 
 <nav id="nav"><div class="wrap">
   <a class="logo" href="#top">N. Sakib<span>.</span></a>
-  <ul>
+  <button class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="navmenu" aria-label="Menu"><span></span></button>
+  <ul id="navmenu">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -149,8 +189,8 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 40px;
   <div class="wrap">
     <div>
       <div class="mono">Seeking a master's or PhD position</div>
-      <h1>Turning <em>sunlight</em><br>into understanding.</h1>
-      <p class="lead">I'm M. Nazmus Sakib, an Electrical and Electronic Engineering researcher working on <span class="rotator" id="rot">photovoltaics</span>. I simulate lead-free perovskite solar cells, trace where they lose energy, and build machine-learning models that respect the physics.</p>
+      <h1>Lead-free <em>perovskite</em> solar cells, simulated and understood.</h1>
+      <p class="lead">I'm M. Nazmus Sakib, an Electrical and Electronic Engineering researcher working on photovoltaics and semiconductor devices. I simulate lead-free perovskite solar cells, trace where they lose energy, and build machine-learning surrogates whose SHAP rankings I check against the device physics.</p>
       <div class="btns">
         <a class="btn main" href="resume.html">View CV</a>
         <a class="btn" href="mailto:nazmussakib101q@gmail.com">Email</a>
@@ -180,7 +220,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 40px;
   <div class="about-grid">
     <div class="reveal d1">
       <p>I'm an undergraduate in <b>Electrical and Electronic Engineering</b> at Islamic University, Kushtia, Bangladesh. My interest sits where <b>semiconductor physics</b>, <b>optoelectronics</b> and <b>materials science</b> meet: how a material's band structure and defects decide what a solar cell can do.</p>
-      <p>Right now I study <b>tin-based perovskites</b>, a lead-free route for thin-film photovoltaics. I compare absorbers inside one fixed device, split the recombination current to see what limits each one, and test machine-learning surrogates only on absorber designs they have never seen.</p>
+      <p>Right now I study <b>tin-based perovskites</b>, a lead-free route for thin-film photovoltaics. I compare absorbers inside one fixed device, split the recombination current to see what limits each one, and validate machine-learning surrogates with grouped cross-validation so near-duplicate devices never sit in train and test together.</p>
       <p>Outside research, I write tools that automate simulation and design work in Python, COMSOL Multiphysics and AutoCAD Electrical.</p>
     </div>
     <div class="card reveal d2">
@@ -233,7 +273,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 40px;
       <ul>
         <li>Simulated three tin perovskites in one Al/ITO/WS₂/CsSnX₃/NiOₓ/Au structure in SCAPS-1D, with every input taken from published studies.</li>
         <li>Split the recombination current into bulk, radiative, Auger, interface and contact parts to find what limits each device.</li>
-        <li>Built a 9,800-device dataset and trained five ML models with grouped cross-validation and SHAP, checked against the device physics.</li>
+        <li>Built a 9,800-device SCAPS-1D dataset and trained five ML models with grouped cross-validation, with SHAP rankings checked against the device physics.</li>
       </ul>
     </div>
     <div class="tl reveal">
@@ -243,10 +283,9 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 40px;
     </div>
   </div>
   <div class="strip">
-    <div class="stat reveal"><b data-n="9800">0</b><span>simulated devices in my ML dataset</span></div>
-    <div class="stat reveal d1"><b data-n="3">0</b><span>lead-free absorbers compared</span></div>
-    <div class="stat reveal d2"><b data-n="5">0</b><span>ML models, grouped CV</span></div>
-    <div class="stat reveal d3"><b data-n="229">0</b><span>tests in my COMSOL MCP server</span></div>
+    <div class="stat reveal"><b data-n="9800" aria-label="9,800">9,800</b><span>simulated devices in my ML dataset</span></div>
+    <div class="stat reveal d1"><b data-n="3" aria-label="3">3</b><span>lead-free absorbers compared</span></div>
+    <div class="stat reveal d2"><b data-n="5" aria-label="5">5</b><span>ML models, grouped CV</span></div>
   </div>
 </div></section>
 
@@ -263,9 +302,9 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 40px;
         <g stroke="#4fd1c5" stroke-opacity=".3"><path d="M40 30L150 20M40 30L150 50M40 30L150 80M40 60L150 20M40 60L150 80M40 60L150 105M40 90L150 50M40 90L150 105M150 20L260 60M150 50L260 60M150 80L260 60M150 105L260 60"/></g>
         <circle r="3" fill="#ffb547"><animateMotion dur="2s" repeatCount="indefinite" path="M40 60L150 50L260 60"/></circle>
       </svg>
-      <h3>ML pipeline for SCAPS data</h3>
+      <h3>Configurable ML pipeline for CSV simulation tables</h3>
       <div class="tag">Python · scikit-learn · SHAP</div>
-      <p>Works on any SCAPS dataset through one config file: log transforms, six model families, random and grouped CV with nested tuning, and SHAP for every model and fold.</p>
+      <p>A per-dataset config, automatic log transforms for decade-spaced inputs, eight model scripts (MLP, CatBoost, decision tree, extra trees, KNN, LightGBM, random forest, XGBoost), randomized search over random K-folds, and SHAP, parity and residual plots per target.</p>
       <a class="more" href="https://github.com/saakiiiib/ML" target="_blank" rel="noopener">View on GitHub →</a>
     </div>
     <div class="card pcard reveal d1">
@@ -277,7 +316,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 40px;
       </svg>
       <h3>COMSOL MCP server</h3>
       <div class="tag">Python · FastMCP · JPype</div>
-      <p>Gives AI agents access to COMSOL's Java API through a three-layer design, backed by 229 tests.</p>
+      <p>Gives AI agents access to COMSOL's Java API through a three-layer design, with its own test suite.</p>
     </div>
     <div class="card pcard reveal d2">
       <svg viewBox="0 0 300 120" aria-hidden="true">
@@ -296,7 +335,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 40px;
   <div class="skills">
     <div class="card reveal"><h3>Device &amp; semiconductor</h3><div class="chips"><span class="chip">SCAPS-1D</span><span class="chip">Drift-diffusion</span><span class="chip">J–V &amp; EQE analysis</span><span class="chip">Recombination analysis</span><span class="chip">Band alignment</span></div></div>
     <div class="card reveal d1"><h3>Multiphysics</h3><div class="chips"><span class="chip">COMSOL Multiphysics</span><span class="chip">Heat transfer</span><span class="chip">Electrostatics</span><span class="chip">COMSOL Java API</span></div></div>
-    <div class="card reveal d2"><h3>Machine learning</h3><div class="chips"><span class="chip">scikit-learn</span><span class="chip">XGBoost / LightGBM</span><span class="chip">Neural networks</span><span class="chip">Grouped CV</span><span class="chip">SHAP</span></div></div>
+    <div class="card reveal d2"><h3>Machine learning</h3><div class="chips"><span class="chip">scikit-learn</span><span class="chip">XGBoost / LightGBM</span><span class="chip">MLP (scikit-learn)</span><span class="chip">Grouped CV</span><span class="chip">SHAP</span></div></div>
     <div class="card reveal"><h3>Programming</h3><div class="chips"><span class="chip">Python</span><span class="chip">NumPy · pandas</span><span class="chip">Java</span><span class="chip">Git</span></div></div>
     <div class="card reveal d1"><h3>Electrical design</h3><div class="chips"><span class="chip">AutoCAD Electrical</span><span class="chip">Schematics</span><span class="chip">BOMs</span></div></div>
     <div class="card reveal d2"><h3>Scientific tools</h3><div class="chips"><span class="chip">OriginPro</span><span class="chip">Google Colab</span></div></div>
@@ -317,41 +356,112 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 40px;
 <footer>© 2026 M. Nazmus Sakib · Islamic University, Kushtia, Bangladesh</footer>
 
 <script>
-// sunlight particles falling onto the page
-const c=document.getElementById('sky'),x=c.getContext('2d');let W,H,P=[];
-function size(){W=c.width=c.offsetWidth*devicePixelRatio;H=c.height=c.offsetHeight*devicePixelRatio}
-size();addEventListener('resize',size);
-for(let i=0;i<90;i++)P.push({x:Math.random(),y:Math.random(),v:.0006+Math.random()*.0018,l:8+Math.random()*28,a:.15+Math.random()*.5});
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-function draw(){
-  const g=x.createRadialGradient(W*.85,-H*.1,0,W*.85,-H*.1,H*1.1);
-  g.addColorStop(0,'rgba(255,170,70,.28)');g.addColorStop(1,'rgba(11,16,32,0)');
-  x.fillStyle='#0b1020';x.fillRect(0,0,W,H);x.fillStyle=g;x.fillRect(0,0,W,H);
-  for(const p of P){
-    x.strokeStyle=`rgba(255,${170+Math.floor(p.a*60)},80,${p.a})`;x.lineWidth=1.4*devicePixelRatio;
-    x.beginPath();x.moveTo(p.x*W,p.y*H);x.lineTo(p.x*W-p.l*.35,p.y*H-p.l);x.stroke();
-    if(!reduce){p.y+=p.v;p.x+=p.v*.35;if(p.y>1.05){p.y=-.05;p.x=Math.random()}}
-  }
-  requestAnimationFrame(draw);
+// ---- sunlight particles falling onto the page -------------------------------
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const c = document.getElementById('sky'), x = c.getContext('2d');
+let W, H, P = [], raf = null, heroVisible = true;
+
+function size(){
+  W = c.width  = c.offsetWidth  * devicePixelRatio;
+  H = c.height = c.offsetHeight * devicePixelRatio;
 }
-draw();
-// rotating interest word
-const words=['photovoltaics','optoelectronics','semiconductor physics','materials science','device simulation'];let wi=0;
-setInterval(()=>{const r=document.getElementById('rot');r.style.opacity=0;setTimeout(()=>{wi=(wi+1)%words.length;r.textContent=words[wi];r.style.opacity=1},300)},2400);
-document.getElementById('rot').style.transition='opacity .3s';
-// exploded stack after load
-setTimeout(()=>document.getElementById('stack').classList.add('split'),600);
-// nav + progress
-addEventListener('scroll',()=>{
-  document.getElementById('nav').classList.toggle('solid',scrollY>40);
-  const h=document.documentElement;document.getElementById('prog').style.width=(scrollY/(h.scrollHeight-h.clientHeight)*100)+'%';
+size();
+addEventListener('resize', () => { size(); if(!running()) frame(); });
+
+for(let i = 0; i < 90; i++) P.push({
+  x: Math.random(), y: Math.random(),
+  v: .0006 + Math.random() * .0018,
+  l: 8 + Math.random() * 28,
+  a: .15 + Math.random() * .5
 });
-// reveal + counters
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');
-  e.target.querySelectorAll('[data-n]').forEach(b=>{const n=+b.dataset.n,t0=performance.now();
-    (function f(t){const k=Math.min(1,(t-t0)/1400);b.textContent=Math.round(n*(1-Math.pow(1-k,3))).toLocaleString();if(k<1)requestAnimationFrame(f)})(t0)});
-  io.unobserve(e.target)}),{threshold:.15});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// one painted frame; advance only when animating
+function frame(step){
+  const g = x.createRadialGradient(W * .85, -H * .1, 0, W * .85, -H * .1, H * 1.1);
+  g.addColorStop(0, 'rgba(255,170,70,.28)');
+  g.addColorStop(1, 'rgba(11,16,32,0)');
+  x.fillStyle = '#0b1020'; x.fillRect(0, 0, W, H);
+  x.fillStyle = g;         x.fillRect(0, 0, W, H);
+  for(const p of P){
+    x.strokeStyle = `rgba(255,${170 + Math.floor(p.a * 60)},80,${p.a})`;
+    x.lineWidth = 1.4 * devicePixelRatio;
+    x.beginPath();
+    x.moveTo(p.x * W, p.y * H);
+    x.lineTo(p.x * W - p.l * .35, p.y * H - p.l);
+    x.stroke();
+    if(step){
+      p.y += p.v; p.x += p.v * .35;
+      if(p.y > 1.05){ p.y = -.05; p.x = Math.random(); }
+    }
+  }
+}
+
+const running = () => raf !== null;
+function loop(){ frame(true); raf = requestAnimationFrame(loop); }
+function start(){ if(!reduce && !running()) raf = requestAnimationFrame(loop); }
+function stop(){ if(running()){ cancelAnimationFrame(raf); raf = null; } }
+
+// reduced motion: a single static frame, no loop at all
+if(reduce){
+  frame(false);
+} else {
+  // pause while the hero is off screen or the tab is hidden
+  new IntersectionObserver(es => {
+    heroVisible = es[0].isIntersecting;
+    heroVisible && !document.hidden ? start() : stop();
+  }).observe(document.getElementById('top'));
+  document.addEventListener('visibilitychange', () => {
+    document.hidden || !heroVisible ? stop() : start();
+  });
+  start();
+}
+
+// ---- mobile nav ------------------------------------------------------------
+const navBtn = document.getElementById('navtoggle'), navMenu = document.getElementById('navmenu');
+const mobile = () => matchMedia('(max-width:720px)').matches;
+function closeNav(){ navBtn.setAttribute('aria-expanded', 'false'); if(mobile()) navMenu.hidden = true; }
+function syncNav(){ mobile() ? closeNav() : (navMenu.hidden = false); }
+syncNav();
+addEventListener('resize', syncNav);
+navBtn.addEventListener('click', () => {
+  const open = navBtn.getAttribute('aria-expanded') === 'true';
+  navBtn.setAttribute('aria-expanded', String(!open));
+  navMenu.hidden = open;
+});
+navMenu.addEventListener('click', e => { if(e.target.tagName === 'A') closeNav(); });
+addEventListener('keydown', e => {
+  if(e.key === 'Escape' && navBtn.getAttribute('aria-expanded') === 'true'){ closeNav(); navBtn.focus(); }
+});
+
+// ---- exploded stack after load ---------------------------------------------
+setTimeout(() => document.getElementById('stack').classList.add('split'), 600);
+
+// ---- nav background + scroll progress --------------------------------------
+addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('solid', scrollY > 40);
+  const h = document.documentElement;
+  document.getElementById('prog').style.width = (scrollY / (h.scrollHeight - h.clientHeight) * 100) + '%';
+});
+
+// ---- reveal + counters -----------------------------------------------------
+// the final value is already in the HTML and in aria-label; this only animates
+// the visible text, so assistive tech never reads a partial number
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if(!e.isIntersecting) return;
+  e.target.classList.add('in');
+  if(!reduce) e.target.querySelectorAll('[data-n]').forEach(b => {
+    const n = +b.dataset.n, final = b.textContent, t0 = performance.now();
+    (function f(t){
+      const k = Math.min(1, (t - t0) / 1400);
+      b.textContent = k < 1
+        ? Math.round(n * (1 - Math.pow(1 - k, 3))).toLocaleString('en-US')
+        : final;
+      if(k < 1) requestAnimationFrame(f);
+    })(t0);
+  });
+  io.unobserve(e.target);
+}), { threshold: .15 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
