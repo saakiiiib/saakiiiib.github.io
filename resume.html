@@ -20,7 +20,6 @@ h2{font-size:.72rem;letter-spacing:.18em;color:var(--acc);text-transform:upperca
 ul{margin:4px 0 0 18px;font-size:.86rem;color:var(--ink)}
 ul li{margin-bottom:3px}
 .row{display:grid;grid-template-columns:140px 1fr;gap:12px;margin-bottom:5px;font-size:.86rem}
-.contact a{color:inherit;text-decoration:none}
 .row b{font-weight:600}
 .todo{color:var(--todo);font-weight:600}
 @media print{.wrap{padding:0}.todo{color:#000}}
@@ -31,9 +30,9 @@ ul li{margin-bottom:3px}
   <h1>M. Nazmus Sakib</h1>
   <div class="contact">
     <span>Kushtia, Bangladesh</span>
-    <a href="mailto:nazmussakib101q@gmail.com">nazmussakib101q@gmail.com</a>
-    <a href="https://github.com/saakiiiib">github.com/saakiiiib</a>
-    <a href="https://www.linkedin.com/in/m-nazmus-sakib-89017a239">linkedin.com/in/m-nazmus-sakib-89017a239</a>
+    <span>nazmussakib101q@gmail.com</span>
+        <span>github.com/saakiiiib</span>
+    <span>linkedin.com/in/m-nazmus-sakib-89017a239</span>
   </div>
 
   <h2>Research interests</h2>
@@ -46,23 +45,18 @@ ul li{margin-bottom:3px}
     <ul><li>Thesis: comparative SCAPS-1D study of Cs-based tin perovskite absorbers with machine-learning surrogate models. Supervisor: Prof. Dr. Md. Abdullah-Al Mashud.</li></ul>
   </div>
 
-  <h2>Publications and manuscripts</h2>
-  <ul>
-    <li><b>M. N. Sakib</b>, M. A. Al Mashud. Comparing lead-free CsSnI₃, CsSnBr₃ and CsSnCl₃ perovskite solar cells in a common device structure using SCAPS-1D and machine learning. <i>Manuscript in preparation</i> (target: Scientific Reports).</li>
-  </ul>
-
   <h2>Research experience</h2>
   <div class="item">
     <div class="head"><h3>Tin perovskite solar cells: simulation, loss analysis and ML</h3><span class="when">Ongoing</span></div>
     <div class="sub">Undergraduate research, Islamic University</div>
     <ul>
-      <li>Simulated CsSnI₃, CsSnBr₃ and CsSnCl₃ in one Al/ITO/WS₂/CsSnX₃/NiOₓ/Au structure in SCAPS-1D with every input taken from published sources; optimized each absorber (best simulated PCE 28.3 %).</li>
+      <li>Simulated CsSnI₃, CsSnBr₃ and CsSnCl₃ in one Al/ITO/WS₂/CsSnX₃/NiOₓ/Au structure in SCAPS-1D with every input taken from published sources; optimized each absorber.</li>
       <li>Split the recombination current into bulk, radiative, Auger, interface and contact channels and used front/back interface tests to find each device's limiting loss.</li>
       <li>Built a 9,800-device SCAPS dataset and trained five ML models with grouped cross-validation (no near-duplicate leakage) and SHAP, cross-checked against the device physics.</li>
     </ul>
   </div>
   <div class="item">
-    <div class="head"><h3>Cs₂CuBiBr₆ double-perovskite solar cell (SCAPS-1D)</h3></div>
+    <div class="head"><h3>Cs₂CuBiBr₆ double-perovskite solar cell (SCAPS-1D)</h3><span class="when">Completed</span></div>
     <ul><li>Interface-driven optimization of a lead-free Cs₂CuBiBr₆ device in a PEDOT:PSS/WS₂ p–i–n architecture.</li></ul>
   </div>
 
