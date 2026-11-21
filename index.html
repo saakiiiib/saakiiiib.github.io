@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>M. Nazmus Sakib — Photovoltaics, Semiconductor Devices & Machine Learning</title>
+<title>M. Nazmus Sakib — Photovoltaics, Semiconductor Devices &amp; Machine Learning</title>
 <meta name="description" content="M. Nazmus Sakib: EEE researcher working on lead-free perovskite solar cells, device simulation and machine learning for materials.">
 <link rel="canonical" href="https://saakiiiib.github.io/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -11,169 +11,52 @@
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="M. Nazmus Sakib">
 <meta property="og:url" content="https://saakiiiib.github.io/">
-<meta property="og:title" content="M. Nazmus Sakib — Photovoltaics, Semiconductor Devices & Machine Learning">
+<meta property="og:title" content="M. Nazmus Sakib — Photovoltaics, Semiconductor Devices &amp; Machine Learning">
 <meta property="og:description" content="EEE researcher working on lead-free perovskite solar cells, device simulation and machine learning for materials.">
 <meta property="og:image" content="https://saakiiiib.github.io/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="M. Nazmus Sakib — lead-free perovskite solar cells, simulated and understood.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="M. Nazmus Sakib — Photovoltaics, Semiconductor Devices & Machine Learning">
+<meta name="twitter:title" content="M. Nazmus Sakib — Photovoltaics, Semiconductor Devices &amp; Machine Learning">
 <meta name="twitter:description" content="EEE researcher working on lead-free perovskite solar cells, device simulation and machine learning for materials.">
 <meta name="twitter:image" content="https://saakiiiib.github.io/og.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --night:#0b1020;--night2:#121a33;--ink:#e8ecf6;--muted:#9aa6c4;
-  --sun:#ffb547;--sun2:#ff7a3d;--cyan:#4fd1c5;--violet:#8b7cf6;
-  --paper:#f6f4ef;--pink:#1b1f2a;--line:rgba(255,255,255,.09);
+<link rel="stylesheet" href="assets/css/site.css">
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "M. Nazmus Sakib",
+  "url": "https://saakiiiib.github.io/",
+  "email": "mailto:nazmussakib101q@gmail.com",
+  "affiliation": {
+    "@type": "CollegeOrUniversity",
+    "name": "Islamic University, Kushtia, Bangladesh"
+  },
+  "sameAs": [
+    "https://github.com/saakiiiib",
+    "https://www.linkedin.com/in/m-nazmus-sakib-89017a239"
+  ],
+  "knowsAbout": [
+    "Photovoltaics",
+    "Perovskite Solar Cells",
+    "SCAPS-1D",
+    "Semiconductor Device Simulation",
+    "Machine Learning for Materials"
+  ]
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:Inter,system-ui,sans-serif;background:var(--night);color:var(--ink);line-height:1.6;overflow-x:hidden}
-a{color:inherit}
-.mono{font-family:Inter,system-ui,sans-serif;font-weight:600;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sun)}
-h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;letter-spacing:-.01em}
-.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-
-/* progress bar */
-#prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--sun),var(--sun2));z-index:60}
-
-/* nav */
-nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,backdrop-filter .3s}
-nav.solid{background:rgba(11,16,32,.75);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
-nav .logo{font-family:Fraunces,serif;font-size:1.15rem;text-decoration:none}
-nav .logo span{color:var(--sun)}
-nav ul{display:flex;gap:26px;list-style:none;font-size:.88rem}
-nav ul a{text-decoration:none;color:var(--muted);transition:color .2s}
-nav ul a:hover{color:var(--ink)}
-nav ul a:focus-visible,.navtoggle:focus-visible,.btn:focus-visible,nav .logo:focus-visible,.more:focus-visible{outline:2px solid var(--sun);outline-offset:3px;border-radius:4px}
-.navtoggle{display:none;background:none;border:1px solid var(--line);border-radius:10px;color:var(--ink);width:42px;height:38px;cursor:pointer;align-items:center;justify-content:center}
-.navtoggle span{position:relative;display:block;width:18px;height:2px;background:var(--ink)}
-.navtoggle span::before,.navtoggle span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink)}
-.navtoggle span::before{top:-6px}.navtoggle span::after{top:6px}
-.navtoggle[aria-expanded=true] span{background:transparent}
-.navtoggle[aria-expanded=true] span::before{top:0;transform:rotate(45deg)}
-.navtoggle[aria-expanded=true] span::after{top:0;transform:rotate(-45deg)}
-@media(max-width:720px){
-  .navtoggle{display:flex}
-  nav{background:rgba(11,16,32,.75);backdrop-filter:blur(12px)}
-  nav ul{position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;
-    background:rgba(11,16,32,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
-    padding:6px 24px 14px;font-size:1rem}
-  nav ul[hidden]{display:none}
-  nav ul li{border-top:1px solid var(--line)}
-  nav ul a{display:block;padding:14px 0;color:var(--ink)}
-}
-
-/* hero */
-.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
-#sky{position:absolute;inset:0;width:100%;height:100%}
-.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;width:100%}
-@media(max-width:900px){
-  .hero .wrap{grid-template-columns:1fr;padding-top:90px}
-  .hero{padding-bottom:40px}
-  .stack{margin-top:120px;transform:scale(.8);transform-origin:top center}
-  .stacklabel{margin-top:10px}
-}
-.hero h1{font-size:clamp(2.25rem,5.2vw,4.1rem);line-height:1.04;margin:14px 0 20px;max-width:15ch}
-.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--sun),var(--sun2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p.lead{font-size:1.1rem;color:var(--muted);max-width:540px}
-.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-.btn{padding:11px 20px;border-radius:999px;text-decoration:none;font-size:.9rem;font-weight:500;border:1px solid var(--line);transition:transform .2s,background .2s}
-.btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.06)}
-.btn.main{background:linear-gradient(90deg,var(--sun),var(--sun2));color:#1a1206;border:none}
-.scrollcue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;animation:bob 2s infinite}
-@keyframes bob{50%{transform:translate(-50%,6px)}}
-
-/* stack */
-.stack{perspective:1100px;display:flex;justify-content:center}
-.layers{transform:rotateX(52deg) rotateZ(-32deg);transform-style:preserve-3d;position:relative;width:300px;height:300px}
-.layer{position:absolute;left:0;top:0;width:300px;height:190px;border-radius:6px;display:flex;align-items:flex-end;padding:10px 14px;font-size:.78rem;font-weight:600;color:#0b1020;box-shadow:0 0 0 1px rgba(255,255,255,.15) inset;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
-.layer small{font-weight:400;opacity:.75;margin-left:6px}
-.stack.split .layer{transform:translateZ(calc(var(--i)*46px))}
-.layer{transform:translateZ(calc(var(--i)*14px))}
-.stacklabel{text-align:center;color:var(--muted);font-size:.78rem;margin-top:-30px}
-
-/* sections */
-section{padding:120px 0;position:relative}
-.sec-head{margin-bottom:50px}
-.sec-head h2{font-size:clamp(2rem,4vw,3rem);margin-top:8px}
-.reveal{opacity:0;transform:translateY(36px);transition:opacity .9s ease,transform .9s ease}
-.reveal.in{opacity:1;transform:none}
-.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
-
-/* about */
-.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:50px}
-@media(max-width:900px){.about-grid{grid-template-columns:1fr}}
-.about-grid p{color:var(--muted);margin-bottom:16px;font-size:1.03rem}
-.about-grid p b{color:var(--ink);font-weight:500}
-.card{background:linear-gradient(160deg,var(--night2),rgba(18,26,51,.4));border:1px solid var(--line);border-radius:18px;padding:28px}
-.facts dt{font-size:.72rem;color:var(--sun);text-transform:uppercase;letter-spacing:.14em;margin-top:16px}
-.facts dt:first-child{margin-top:0}
-.facts dd{font-size:.95rem}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.chip{font-size:.78rem;padding:5px 11px;border-radius:999px;border:1px solid var(--line);color:var(--ink);background:rgba(255,255,255,.03)}
-
-/* band diagram */
-.band{background:var(--night2);border:1px solid var(--line);border-radius:18px;padding:30px;margin-top:60px}
-.band-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-@media(max-width:900px){.band-grid{grid-template-columns:1fr}}
-.band h3{font-size:1.6rem;margin:8px 0 12px}
-.band p{color:var(--muted)}
-.band svg{width:100%;height:auto}
-
-/* experience timeline */
-.timeline{border-left:2px solid var(--line);margin-left:8px;padding-left:34px}
-.tl{position:relative;margin-bottom:44px}
-.tl::before{content:"";position:absolute;left:-43px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--night);border:3px solid var(--sun);box-shadow:0 0 18px var(--sun)}
-.tl h3{font-size:1.45rem}
-.tl .meta{color:var(--sun);font-size:.85rem;margin:4px 0 12px}
-.tl ul{color:var(--muted);padding-left:18px}
-.tl li{margin-bottom:6px}
-
-/* projects */
-.proj{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-@media(max-width:900px){.proj{grid-template-columns:1fr}}
-.pcard{position:relative;overflow:hidden;transition:transform .4s,border-color .4s}
-.pcard:hover{transform:translateY(-6px);border-color:rgba(255,181,71,.4)}
-.pcard svg{width:100%;height:120px;margin-bottom:18px}
-.pcard h3{font-size:1.25rem;margin-bottom:4px}
-.pcard .tag{font-size:.78rem;color:var(--cyan);margin-bottom:10px}
-.pcard p{color:var(--muted);font-size:.93rem}
-.pcard a.more{display:inline-block;margin-top:14px;font-size:.85rem;color:var(--sun);text-decoration:none}
-.priv{display:block;font-family:Inter,system-ui,sans-serif;font-size:.72rem;font-weight:500;color:var(--muted);letter-spacing:.04em;margin-top:3px}
-
-/* skills */
-.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-@media(max-width:900px){.skills{grid-template-columns:1fr}}
-.skills h3{font-size:1.1rem;margin-bottom:10px}
-
-/* stats strip */
-.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:60px}
-@media(max-width:720px){.strip{grid-template-columns:1fr}}
-.stat{text-align:center;padding:22px 10px;border-top:1px solid var(--line)}
-.stat b{display:block;font-family:Fraunces,serif;font-size:2.4rem;color:var(--sun)}
-.stat span{font-size:.82rem;color:var(--muted)}
-
-/* contact */
-.contact{text-align:center;background:radial-gradient(ellipse at 50% 120%,rgba(255,122,61,.25),transparent 60%)}
-.contact h2{font-size:clamp(2.2rem,5vw,3.6rem);margin:10px 0 18px}
-.contact p{color:var(--muted);max-width:620px;margin:0 auto}
-.contact .btns{justify-content:center}
-footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 40px;border-top:1px solid var(--line)}
-
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
-</style>
+</script>
 </head>
 <body>
-<div id="prog"></div>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div id="prog" aria-hidden="true"></div>
 
-<nav id="nav"><div class="wrap">
+<nav id="nav" aria-label="Primary"><div class="wrap">
   <a class="logo" href="#top">N. Sakib<span>.</span></a>
   <button class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="navmenu" aria-label="Menu"><span></span></button>
   <ul id="navmenu">
@@ -186,7 +69,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 40px;
 </div></nav>
 
 <header class="hero" id="top">
-  <canvas id="sky"></canvas>
+  <canvas id="sky" aria-hidden="true"></canvas>
   <div class="wrap">
     <div>
       <div class="mono">Seeking a master's or PhD position</div>
@@ -195,8 +78,8 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 40px;
       <div class="btns">
         <a class="btn main" href="resume.html">View CV</a>
         <a class="btn" href="mailto:nazmussakib101q@gmail.com">Email</a>
-        <a class="btn" href="https://github.com/saakiiiib" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/m-nazmus-sakib-89017a239" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/saakiiiib" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/m-nazmus-sakib-89017a239" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
     </div>
     <div>
@@ -213,9 +96,10 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 40px;
       <p class="stacklabel">The lead-free device I study · schematic, not to scale</p>
     </div>
   </div>
-  <div class="scrollcue">Scroll</div>
+  <div class="scrollcue" aria-hidden="true">Scroll</div>
 </header>
 
+<main id="main">
 <section id="about"><div class="wrap">
   <div class="sec-head reveal"><div class="mono">01 · About</div><h2>Physics first, then the model.</h2></div>
   <div class="about-grid">
@@ -303,9 +187,9 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 40px;
         <g stroke="#4fd1c5" stroke-opacity=".3"><path d="M40 30L150 20M40 30L150 50M40 30L150 80M40 60L150 20M40 60L150 80M40 60L150 105M40 90L150 50M40 90L150 105M150 20L260 60M150 50L260 60M150 80L260 60M150 105L260 60"/></g>
         <circle r="3" fill="#ffb547"><animateMotion dur="2s" repeatCount="indefinite" path="M40 60L150 50L260 60"/></circle>
       </svg>
-      <h3>Configurable ML pipeline for CSV simulation tables <span class="priv">(private code)</span></h3>
+      <h3>SCAPS-ML pipeline for photovoltaic simulation tables <span class="priv">(private code)</span></h3>
       <div class="tag">Python · scikit-learn · SHAP</div>
-      <p>A per-dataset config, automatic log transforms for decade-spaced inputs, eight model scripts (MLP, CatBoost, decision tree, extra trees, KNN, LightGBM, random forest, XGBoost), randomized search over random K-folds, and SHAP, parity and residual plots per target.</p>
+      <p>Modular Python package with JSON configuration, log transforms for wide-range physical inputs, grouped and nested cross-validation across linear, kernel, tree-ensemble and MLP models, SHAP explainability, and parity and residual diagnostics.</p>
     </div>
     <div class="card pcard reveal d1">
       <svg viewBox="0 0 300 120" aria-hidden="true">
@@ -336,7 +220,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 40px;
     <div class="card reveal"><h3>Device &amp; semiconductor</h3><div class="chips"><span class="chip">SCAPS-1D</span><span class="chip">Drift-diffusion</span><span class="chip">J–V &amp; EQE analysis</span><span class="chip">Recombination analysis</span><span class="chip">Band alignment</span></div></div>
     <div class="card reveal d1"><h3>Multiphysics</h3><div class="chips"><span class="chip">COMSOL Multiphysics</span><span class="chip">Heat transfer</span><span class="chip">Electrostatics</span><span class="chip">COMSOL Java API</span></div></div>
     <div class="card reveal d2"><h3>Machine learning</h3><div class="chips"><span class="chip">scikit-learn</span><span class="chip">XGBoost / LightGBM</span><span class="chip">MLP (scikit-learn)</span><span class="chip">Grouped CV</span><span class="chip">SHAP</span></div></div>
-    <div class="card reveal"><h3>Programming</h3><div class="chips"><span class="chip">Python</span><span class="chip">NumPy · pandas</span><span class="chip">Java</span><span class="chip">Git</span></div></div>
+    <div class="card reveal"><h3>Programming</h3><div class="chips"><span class="chip">Python</span><span class="chip">NumPy · pandas · Matplotlib</span><span class="chip">Java</span><span class="chip">Git</span></div></div>
     <div class="card reveal d1"><h3>Electrical design</h3><div class="chips"><span class="chip">AutoCAD Electrical</span><span class="chip">Schematics</span><span class="chip">BOMs</span></div></div>
     <div class="card reveal d2"><h3>Scientific tools</h3><div class="chips"><span class="chip">OriginPro</span><span class="chip">Google Colab</span></div></div>
   </div>
@@ -348,133 +232,13 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 40px;
   <p>I'm looking for a master's or PhD position in photovoltaics, optoelectronics, semiconductor devices or machine learning for materials.</p>
   <div class="btns">
     <a class="btn main" href="mailto:nazmussakib101q@gmail.com">nazmussakib101q@gmail.com</a>
-    <a class="btn" href="https://github.com/saakiiiib" target="_blank" rel="noopener">GitHub</a>
-    <a class="btn" href="https://www.linkedin.com/in/m-nazmus-sakib-89017a239" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn" href="https://github.com/saakiiiib" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/m-nazmus-sakib-89017a239" target="_blank" rel="noopener noreferrer">LinkedIn</a>
   </div>
 </div></section>
+</main>
 
 <footer>© 2026 M. Nazmus Sakib · Islamic University, Kushtia, Bangladesh</footer>
-
-<script>
-// ---- sunlight particles falling onto the page -------------------------------
-const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const c = document.getElementById('sky'), x = c.getContext('2d');
-let W, H, P = [], raf = null, heroVisible = true;
-
-function size(){
-  W = c.width  = c.offsetWidth  * devicePixelRatio;
-  H = c.height = c.offsetHeight * devicePixelRatio;
-}
-size();
-addEventListener('resize', () => { size(); if(!running()) frame(); });
-
-for(let i = 0; i < 90; i++) P.push({
-  x: Math.random(), y: Math.random(),
-  v: .0006 + Math.random() * .0018,
-  l: 8 + Math.random() * 28,
-  a: .15 + Math.random() * .5
-});
-
-// one painted frame; advance only when animating
-function frame(step){
-  const g = x.createRadialGradient(W * .85, -H * .1, 0, W * .85, -H * .1, H * 1.1);
-  g.addColorStop(0, 'rgba(255,170,70,.28)');
-  g.addColorStop(1, 'rgba(11,16,32,0)');
-  x.fillStyle = '#0b1020'; x.fillRect(0, 0, W, H);
-  x.fillStyle = g;         x.fillRect(0, 0, W, H);
-  for(const p of P){
-    x.strokeStyle = `rgba(255,${170 + Math.floor(p.a * 60)},80,${p.a})`;
-    x.lineWidth = 1.4 * devicePixelRatio;
-    x.beginPath();
-    x.moveTo(p.x * W, p.y * H);
-    x.lineTo(p.x * W - p.l * .35, p.y * H - p.l);
-    x.stroke();
-    if(step){
-      p.y += p.v; p.x += p.v * .35;
-      if(p.y > 1.05){ p.y = -.05; p.x = Math.random(); }
-    }
-  }
-}
-
-const running = () => raf !== null;
-function loop(){ frame(true); raf = requestAnimationFrame(loop); }
-function start(){ if(!reduce && !running()) raf = requestAnimationFrame(loop); }
-function stop(){ if(running()){ cancelAnimationFrame(raf); raf = null; } }
-
-// reduced motion: a single static frame, no loop at all
-if(reduce){
-  frame(false);
-} else {
-  // pause while the hero is off screen or the tab is hidden
-  new IntersectionObserver(es => {
-    heroVisible = es[0].isIntersecting;
-    heroVisible && !document.hidden ? start() : stop();
-  }).observe(document.getElementById('top'));
-  document.addEventListener('visibilitychange', () => {
-    document.hidden || !heroVisible ? stop() : start();
-  });
-  start();
-}
-
-// ---- mobile nav ------------------------------------------------------------
-const navBtn = document.getElementById('navtoggle'), navMenu = document.getElementById('navmenu');
-const mobile = () => matchMedia('(max-width:720px)').matches;
-function closeNav(){ navBtn.setAttribute('aria-expanded', 'false'); if(mobile()) navMenu.hidden = true; }
-function syncNav(){ mobile() ? closeNav() : (navMenu.hidden = false); }
-syncNav();
-addEventListener('resize', syncNav);
-navBtn.addEventListener('click', () => {
-  const open = navBtn.getAttribute('aria-expanded') === 'true';
-  navBtn.setAttribute('aria-expanded', String(!open));
-  navMenu.hidden = open;
-});
-navMenu.addEventListener('click', e => { if(e.target.tagName === 'A') closeNav(); });
-addEventListener('keydown', e => {
-  if(e.key === 'Escape' && navBtn.getAttribute('aria-expanded') === 'true'){ closeNav(); navBtn.focus(); }
-});
-
-// ---- exploded stack after load ---------------------------------------------
-setTimeout(() => document.getElementById('stack').classList.add('split'), 600);
-
-// ---- nav background + scroll progress --------------------------------------
-addEventListener('scroll', () => {
-  document.getElementById('nav').classList.toggle('solid', scrollY > 40);
-  const h = document.documentElement;
-  document.getElementById('prog').style.width = (scrollY / (h.scrollHeight - h.clientHeight) * 100) + '%';
-});
-
-// ---- reveal + counters -----------------------------------------------------
-// the final value is already in the HTML and in aria-label; this only animates
-// the visible text, so assistive tech never reads a partial number
-const io = new IntersectionObserver(es => es.forEach(e => {
-  if(!e.isIntersecting) return;
-  e.target.classList.add('in');
-  if(!reduce) e.target.querySelectorAll('[data-n]').forEach(b => {
-    const n = +b.dataset.n, final = b.textContent, t0 = performance.now();
-    (function f(t){
-      const k = Math.min(1, (t - t0) / 1400);
-      b.textContent = k < 1
-        ? Math.round(n * (1 - Math.pow(1 - k, 3))).toLocaleString('en-US')
-        : final;
-      if(k < 1) requestAnimationFrame(f);
-    })(t0);
-  });
-  io.unobserve(e.target);
-}), { threshold: .15 });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-// landing straight on a #hash skips past everything above the target, so those
-// sections would never intersect and would sit at opacity 0 until scrolled back
-function revealAbove(hash){
-  let target = null;
-  try { target = hash && hash.length > 1 ? document.querySelector(hash) : null; } catch { return; }
-  if(!target) return;
-  const cut = target.getBoundingClientRect().top + scrollY;
-  document.querySelectorAll('.reveal:not(.in)').forEach(el => {
-    if(el.getBoundingClientRect().top + scrollY < cut){ el.classList.add('in'); io.unobserve(el); }
-  });
-}
-if(location.hash) requestAnimationFrame(() => revealAbove(location.hash));
-</script>
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>
